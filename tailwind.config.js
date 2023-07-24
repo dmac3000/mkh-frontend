@@ -4,8 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('assets/seamless-bg.png')",
+      }
+    },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 
