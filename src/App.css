@@ -3,6 +3,35 @@ body > *, #root > * {
   padding: 0;
 }
 
+.carousel-box {
+  background-color: black;
+  width: 100%;
+  height: 400px;  /* You can adjust this value based on your needs */
+  margin: 0 auto;
+}
+
+.background-image {
+  background-image: url('assets/seamless-bg.png');
+  background-color: black;
+  background-repeat: repeat;
+  height: 100vh;
+  background-size: auto;
+}
+
+
+/* .border-img {
+  border: 10px solid transparent;
+  border-image: url('../assets/border-image.png') 30 round; /* replace with the actual path to your image */
+  /* border-image-outset: 2px; */
+/* } */
+
+.navbar {
+  background-image: url('./assets/navbar-fretwork.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+  height: 28vmin;
+}
+
 .App {
   text-align: center;
 }
@@ -10,6 +39,7 @@ body > *, #root > * {
 .App-logo {
   height: 20vmin;
   pointer-events: none;
+  justify-content: left;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -19,7 +49,7 @@ body > *, #root > * {
 } */
 
 .App-header {
-  background-color: #282c34;
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

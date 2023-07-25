@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <div className="navbar bg-white">
-      <div className="flex-1">
+      <div className="flex-1 pb-7">
         <Link to="/">
           <img 
             src={logo} 
