@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import HomePage from './pages/HomePage';
+import CreateRecipe from './pages/CreateRecipe';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<HomePage />} />  
+          <Route path="/create-recipe" element={<CreateRecipe />} />
         </Routes>
       </div>
       {/* </div> */}

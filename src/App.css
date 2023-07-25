@@ -18,7 +18,10 @@ body > *, #root > * {
   background-size: auto;
 }
 
-
+.ingredient-image {
+  width: 50px;  /* or any size you want */
+  height: auto;
+}
 /* .border-img {
   border: 10px solid transparent;
   border-image: url('../assets/border-image.png') 30 round; /* replace with the actual path to your image */
