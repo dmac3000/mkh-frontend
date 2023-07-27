@@ -1,7 +1,8 @@
-import Apple from './assets/ingredient-icons/apple.png';
-import Acorn from './assets/ingredient-icons/acorn.png';
+import apple from './assets/ingredient-icons/apple.png';
+import acorn from './assets/ingredient-icons/acorn.png';
 
 export const ingredientImages = {
-  Apple: Apple,
-  Acorn: Acorn,
+  'Apple': apple,
+  'Acorn': acorn,
+  // ...the rest of the images...
 };

@@ -16,7 +16,7 @@ const CreateRecipe = () => {
     { id: '', selectedIngredient: null },
     { id: '', selectedIngredient: null },
     { id: '', selectedIngredient: null },
-  ]); // Modified ingredients state to hold objects with id and selectedIngredient properties
+  ]);
 
   useEffect(() => {
     axios.get('http://localhost:3333/api/ingredients')
@@ -68,6 +68,7 @@ const CreateRecipe = () => {
               ))}
             </select>
             {ingredient.selectedIngredient && <img className="ingredient-image" src={ingredientImages[ingredient.selectedIngredient.name]}  alt={ingredient.selectedIngredient.name} />}
+
           </div>
         ))}
         <select onChange={(e) => setImage(e.target.value)} required>
