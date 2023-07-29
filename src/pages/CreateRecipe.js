@@ -26,15 +26,13 @@ const CreateRecipe = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const ingredientIds = ingredients
-        .map(ingredient => ingredient.id)
-        .filter(id => id !== ''); // Filter out empty ids
+      const ingredientNames = ingredients.map(ingredient => ingredient.selectedIngredient.name);
       const { data } = await axios.post('http://localhost:3333/api/recipes', {
         name,
         effects,
-        ingredients: ingredientIds,
+        ingredients: ingredientNames,
         image,
       });
 
@@ -47,8 +45,8 @@ const CreateRecipe = () => {
 
   const handleIngredientChange = (index, value) => {
     const newIngredients = [...ingredients];
-    const selected = ingredientsList.find(ingredient => ingredient._id === value);
-    newIngredients[index] = { id: value, selectedIngredient: selected };
+    const selected = ingredientsList.find(ingredient => ingredient.name === value);
+    newIngredients[index] = { id: selected.name, selectedIngredient: selected };
     setIngredients(newIngredients);
   };
 
@@ -64,13 +62,12 @@ const CreateRecipe = () => {
             <select id={`ingredient${index + 1}`} value={ingredient.id} onChange={(e) => handleIngredientChange(index, e.target.value)} required>
               <option value="">Select Ingredient #{index + 1}</option>
               {ingredientsList.map((ingredient) => (
-                <option value={ingredient._id} key={ingredient._id}>
+                <option value={ingredient.name} key={ingredient._id}>
                   {ingredient.name}
                 </option>
               ))}
             </select>
             {ingredient.selectedIngredient && <img className="ingredient-image" src={ingredientImages[ingredient.selectedIngredient.name]}  alt={ingredient.selectedIngredient.name} />}
-
           </div>
         ))}
         <select onChange={(e) => setImage(e.target.value)} required>
