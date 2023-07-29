@@ -18,7 +18,7 @@ const Signup = () => {
         email,
         password,
       });
-
+      console.log (data);
       setMessage('Signed up successfully');
       setTimeout(() => navigate('/'), 2000); // Navigate to '/' after 2 seconds
     } catch (err) {
