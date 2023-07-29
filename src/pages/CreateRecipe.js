@@ -29,6 +29,7 @@ const CreateRecipe = () => {
   
     try {
       const ingredientNames = ingredients.map(ingredient => ingredient.selectedIngredient.name);
+      console.log(ingredientNames); // <-- Add this line
       const { data } = await axios.post('http://localhost:3333/api/recipes', {
         name,
         effects,
