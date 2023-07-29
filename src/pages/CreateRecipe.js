@@ -52,11 +52,14 @@ const CreateRecipe = () => {
   };
 
   return (
-    <div className="w-full max-w-md px-5 py-4 mx-auto mt-8 bg-white rounded shadow-md">
-      <h2 className="mb-4 text-3xl font-bold text-center text-gray-900">Create New Recipe</h2>
+    
+    <div className="flex flex-col items-center justify-start min-h-screen">
+      <div className="h-16"></div>
+      <div style={{height: "50vh"}} className="w-full bg-black text-white flex flex-col items-center justify-start pt-4">
+      <h1 className="text-4xl font-custom">Create New Recipe</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Recipe Name" required />
-        <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Effects" required />
+        <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Choose Effects" required />
         <h3>Select Ingredients</h3>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
@@ -80,6 +83,7 @@ const CreateRecipe = () => {
         </select>
         <button type="submit">Create Recipe</button>
       </form>
+      </div>
     </div>
   );
 };
