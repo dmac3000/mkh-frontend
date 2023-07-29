@@ -28,7 +28,9 @@ const CreateRecipe = () => {
     e.preventDefault();
 
     try {
-      const ingredientIds = ingredients.map(ingredient => ingredient.id);
+      const ingredientIds = ingredients
+        .map(ingredient => ingredient.id)
+        .filter(id => id !== ''); // Filter out empty ids
       const { data } = await axios.post('http://localhost:3333/api/recipes', {
         name,
         effects,
