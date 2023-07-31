@@ -5,7 +5,7 @@ import { ingredientImages } from '../ingredientImages';
 const RecipeCard = ({ recipe }) => {
   useEffect(() => {
     const circleType = new CircleType(document.getElementById('recipe-name'));
-    circleType.radius(200);
+    circleType.radius(150);
   }, []);
 
   return (
