@@ -8,9 +8,16 @@ body > *, #root > * {
   src: url('assets/HyliaSerifBeta-Regular.otf') format ('opentype');
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2  {
   font-family: 'Hylia Serif Beta', serif;
 }
+
+h3, h4, h5, h6 {
+  font-family: 'Open Sans', serif;
+  color:#564B0F;
+}
+
+
 
 .carousel-box {
   background-color: black;

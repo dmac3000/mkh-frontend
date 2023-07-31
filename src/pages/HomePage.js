@@ -10,7 +10,8 @@ const HomePage = () => {
         <Link to="/create-recipe">
         <h3 className="text-2xl pt-20 font-custom">Create Recipe</h3>
         </Link>
-        {/* Your carousel goes here */}
+        <Link to="/view-recipe">View Recipe</Link>     
+           {/*  carousel goes here */}
       </div>
     </div>
   );
