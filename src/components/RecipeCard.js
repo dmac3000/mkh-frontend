@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import CircleType from 'circletype';
 import { ingredientImages } from '../ingredientImages';
+import { recipeImages } from '../recipeImages'; // Import recipeImages
 
 const RecipeCard = ({ recipe }) => {
   useEffect(() => {
@@ -8,31 +9,38 @@ const RecipeCard = ({ recipe }) => {
     circleType.radius(150);
   }, []);
 
+  console.log('Recipe image:', recipe.imageFilename);
+
   return (
-    <div className="rounded-lg shadow-lg overflow-hidden mx-4">
-      <div className="relative">
-        <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
-        <div className="p-4 absolute top-0 left-0 bg-opacity-50 w-full">
-          <h3 id="recipe-name" className="text-xl font-bold text-center mb-16">{recipe.name}</h3>
-          <div className="flex justify-center space-x-2 mt-40">
-            {recipe.ingredients.map((ingredient, index) => (
-              <img 
-                key={ingredient._id} 
-                className={`h-12 w-12 ${index % 2 === 0 ? 'mt-12' : 'mt-6'}`} 
-                src={ingredientImages[ingredient.name]} 
-                alt={ingredient.name} 
-              />
-            ))}
-          </div>
+    <div className="rounded-lg shadow-lg overflow-hidden mx-4 relative">
+      {/* This is your background image */}
+      <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
+
+      {/* This is the selected recipe image */}
+      {recipe.imageFilename && recipeImages[recipe.imageFilename] ? (
+        <img className="h-24 w-full object-contain absolute top-16 left-0" src={recipeImages[recipe.imageFilename]} alt="Selected Recipe" />
+      ) : (
+        <p className="absolute top-20 left-0 bg-white">Image not found: {recipe.imageFilename}</p>
+      )}
+
+      <div className="p-4 absolute top-2 left-0 bg-opacity-50 w-full">
+        <h3 id="recipe-name" className="text-xl font-bold text-center mb-16">{recipe.name}</h3>
+      </div>
+
+      <div className="p-4 absolute top-52 left-0 bg-opacity-50 w-full">
+        <div className="flex justify-center space-x-2">
+          {recipe.ingredients.map((ingredient, index) => (
+            <img 
+              key={ingredient._id} 
+              className={`h-12 w-12 ${index % 2 === 0 ? 'mt-12' : 'mt-6'}`} 
+              src={ingredientImages[ingredient.name]} 
+              alt={ingredient.name} 
+            />
+          ))}
         </div>
       </div>
     </div>
   );
-  
-  
-  
-  
-  
 };
 
 export default RecipeCard;

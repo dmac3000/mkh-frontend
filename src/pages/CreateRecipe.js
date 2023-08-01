@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ingredientImages } from '../ingredientImages';
+import { recipeImages } from '../recipeImages';
 
 const CreateRecipe = () => {
   const [name, setName] = useState('');
@@ -29,16 +30,20 @@ const CreateRecipe = () => {
   
     try {
       const ingredientNames = ingredients.map(ingredient => ingredient.selectedIngredient.name);
-      console.log(ingredientNames); // <-- Add this line
-      const { data } = await axios.post('http://localhost:3333/api/recipes', {
+      const requestBody = {
         name,
         effects,
         ingredients: ingredientNames,
-        image,
-      });
-
+        imageFilename: image
+      };
+      console.log("Request Body: ", requestBody);
+      const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody);
+  
       console.log('Recipe created successfully', data);
-      navigate('/');
+      setTimeout(() => {
+      console.log(`Navigating to /view-recipe/${data._id}`);
+      navigate(`/view-recipe/${data._id}`);
+    }, 1000);
     } catch (err) {
       console.error(err);
     }
@@ -60,6 +65,16 @@ const CreateRecipe = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Recipe Name" required />
         <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Choose Effects" required />
+        
+        <h3>Select Recipe Image</h3>
+        <select onChange={(e) => setImage(e.target.value)} required>
+          <option value="">Select an image</option>
+          {/* Replace these options with the actual list of available images */}
+          {Object.keys(recipeImages).map((recipeName) => (
+            <option value={recipeName} key={recipeName}>{recipeName}</option>
+          ))}
+        </select>
+
         <h3>Select Ingredients</h3>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
@@ -74,13 +89,6 @@ const CreateRecipe = () => {
             {ingredient.selectedIngredient && <img className="ingredient-image" src={ingredientImages[ingredient.selectedIngredient.name]}  alt={ingredient.selectedIngredient.name} />}
           </div>
         ))}
-        <select onChange={(e) => setImage(e.target.value)} required>
-          <option value="">Select an image</option>
-          {/* Replace these options with the actual list of available images */}
-          <option value="image1.png">Image 1</option>
-          <option value="image2.png">Image 2</option>
-          <option value="image3.png">Image 3</option>
-        </select>
         <button type="submit">Create Recipe</button>
       </form>
       </div>

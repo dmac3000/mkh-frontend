@@ -38,6 +38,11 @@ h3, h4, h5, h6 {
   width: 50px;  /* or any size you want */
   height: auto;
 }
+
+.recipe-image {
+  width: 70px;  /* or any size you want */
+  height: auto;
+}
 /* .border-img {
   border: 10px solid transparent;
   border-image: url('../assets/border-image.png') 30 round; /* replace with the actual path to your image */
