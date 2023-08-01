@@ -7,6 +7,7 @@ import { recipeImages } from '../recipeImages';
 const CreateRecipe = () => {
   const [name, setName] = useState('');
   const [effects, setEffects] = useState('');
+  const [description, setDescription] = useState(''); 
   const [image, setImage] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ const CreateRecipe = () => {
       const requestBody = {
         name,
         effects,
+        description,
         ingredients: ingredientNames,
         imageFilename: image
       };
@@ -65,8 +67,9 @@ const CreateRecipe = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Recipe Name" required />
         <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Choose Effects" required />
-        
-        <h3>Select Recipe Image</h3>
+        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Recipe Description" required /> 
+
+        <h3>Select Recipeee Image</h3>
         <select onChange={(e) => setImage(e.target.value)} required>
           <option value="">Select an image</option>
           {/* Replace these options with the actual list of available images */}
