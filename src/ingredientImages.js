@@ -18,6 +18,7 @@ import fortifiedpumpkin from './assets/ingredient-icons/fortified-pumpkin.png'
 import heartyradish from './assets/ingredient-icons/hearty-radish.png'
 import sunpumpkin from './assets/ingredient-icons/sun-pumpkin.png'
 import swiftcarrot from './assets/ingredient-icons/swift-carrot.png'
+import darkclump from './assets/ingredient-icons/dark-clump.png';
 
 export const ingredientImages = {
     // In-game classification: Ingredient
@@ -42,6 +43,7 @@ export const ingredientImages = {
     'Hearty Radish':heartyradish,
     'Sun Pumpkin':sunpumpkin,
     'Swift Carrot':swiftcarrot,
+    'Dark Clump': darkclump,
 
     // In-game classification: Shroom
     // 'Big Hearty Truffle': bigheartytruffle,

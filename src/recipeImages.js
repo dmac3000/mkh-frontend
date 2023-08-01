@@ -1,226 +1,295 @@
+import butteredstambulb from './assets/recipe-icons/butteredstambulb.png';
+import deepfriedthigh from './assets/recipe-icons/deepfriedthigh.png';
+import deepfrieddrumstick from './assets/recipe-icons/deepfrieddrumstick.png';
+import deepfriedbirdroast from './assets/recipe-icons/deepfriedbirdroast.png';
+import cheesybakedfish from './assets/recipe-icons/cheesybakedfish.png';
+import darkstew from './assets/recipe-icons/darkstew.png';
 import applepie from './assets/recipe-icons/applepie.png';
-import baguette from './assets/recipe-icons/baguette.png';
-import berriescrepe from './assets/recipe-icons/berriescrepe.png';
-import blackfishhollandaise from './assets/recipe-icons/blackfishhollandaise.png';
-import crabstew from './assets/recipe-icons/crabstew.png';
-import carrotsoup from './assets/recipe-icons/carrotsoup.png';
-import chillisonwhiteplate from './assets/recipe-icons/chillisonwhiteplate.png';
-import crabfriedrice from './assets/recipe-icons/crabfriedrice.png';
-import crabvegetablefriedrice from './assets/recipe-icons/crabvegetablefriedrice.png';
-import curriedmeatandvegetables from './assets/recipe-icons/curriedmeatandvegetables.png';
-import curriedmushrooms from './assets/recipe-icons/curriedmushrooms.png';
-import drumstickcurryrice from './assets/recipe-icons/drumstickcurryrice.png';
+import wheatbread from './assets/recipe-icons/wheatbread.png';
+import wildberrycrepe from './assets/recipe-icons/wildberrycrepe.png';
+import plaincrepe from './assets/recipe-icons/plaincrepe.png';
+import seafoodmeuniere from './assets/recipe-icons/seafoodmeuniere.png';
+import crabstirfry from './assets/recipe-icons/crabstirfry.png';
+import carrotstew from './assets/recipe-icons/carrotstew.png';
+import spicysauteedpeppers from './assets/recipe-icons/spicysauteedpeppers.png';
+import crabomeletwithrice from './assets/recipe-icons/crabomeletwithrice.png';
+import creamymeatsoup from './assets/recipe-icons/creamymeatsoup.png'
+import herbsaute from './assets/recipe-icons/herbsaute.png';
+import fragrantmushroomsaute from './assets/recipe-icons/fragrantmushroomsaute.png';
+import primepoultrycurry from './assets/recipe-icons/primepoultrycurry.png';
 import dubiousfood from './assets/recipe-icons/dubiousfood.png';
-import dvegetabledrumstickfriedrice from './assets/recipe-icons/dvegetabledrumstickfriedrice.png';
-import eggfriedrice from './assets/recipe-icons/eggfriedrice.png';
-import evenmoremeatanrice from './assets/recipe-icons/evenmoremeatanrice.png';
-import fishandmeatonblackplate from './assets/recipe-icons/fishandmeatonblackplate.png';
+import gourmetpoultrypilaf from './assets/recipe-icons/gourmetpoultrypilaf.png';
+import friedeggandrice from './assets/recipe-icons/eggfriedrice.png';
+import primemeatandricebowl from './assets/recipe-icons/primemeatandricebowl.png';
+import gourmetmeatandseafoodfry from './assets/recipe-icons/gourmetmeatandseafoodfry.png';
 import fishmushroomskewer from './assets/recipe-icons/fishmushroomskewer.png';
-import fishonblackplate from './assets/recipe-icons/fishonblackplate.png';
-import fishonleaf from './assets/recipe-icons/fishonleaf.png';
+import spicypepperseafood from './assets/recipe-icons/spicypepperseafood.png';
+import steamedfish from './assets/recipe-icons/steamedfish.png';
 import fishpie from './assets/recipe-icons/fishpie.png';
 import fishskewer from './assets/recipe-icons/fishskewer.png';
-import friedacorns from './assets/recipe-icons/friedacorns.png';
+import sauteednuts from './assets/recipe-icons/sauteednuts.png';
 import friedbananasonleaf from './assets/recipe-icons/friedbananasonleaf.png';
-import friedfish from './assets/recipe-icons/friedfish.png';
-import friedmeatanddrumstick from './assets/recipe-icons/friedmeatanddrumstick.png';
-import friedmeatandpoultry from './assets/recipe-icons/friedmeatandpoultry.png';
-import friedmushroomsonwhiteplate from './assets/recipe-icons/friedmushroomsonwhiteplate.png';
-import friedvegetables from './assets/recipe-icons/friedvegetables.png';
-import fruitinlargewhitebowl from './assets/recipe-icons/fruitinlargewhitebowl.png';
-import fruitinwhitebowl from './assets/recipe-icons/fruitinwhitebowl.png';
-import fruitonleaf from './assets/recipe-icons/fruitonleaf.png';
+import saltgrilledfish from './assets/recipe-icons/saltgrilledfish.png';
+import saltgrilledmeat from './assets/recipe-icons/saltgrilledmeat.png';
+import saltgrilledprimemeat from './assets/recipe-icons/saltgrilledprimemeat.png';
+import saltgrilledmushrooms from './assets/recipe-icons/saltgrilledmushrooms.png';
+import friedwildgreens from './assets/recipe-icons/friedwildgreens.png';
+import copioussimmeredfruit from './assets/recipe-icons/copioussimmeredfruit.png';
+import simmeredfruit from './assets/recipe-icons/simmeredfruit.png';
+import steamedfruit from './assets/recipe-icons/steamedfruit.png';
 import fruitpie from './assets/recipe-icons/fruitpie.png';
-import heartyradishstew from './assets/recipe-icons/heartyradishstew.png';
-import herbsandgreensinwhitebowl from './assets/recipe-icons/herbsandgreensinwhitebowl.png';
-import honeyedapple from './assets/recipe-icons/honeyedapple.png';
-import honeyedcrepe from './assets/recipe-icons/honeyedcrepe.png';
+import creamyheartsoup from './assets/recipe-icons/heartyradishstew.png';
+import copiousfriedwildgreens from './assets/recipe-icons/copiousfriedwildgreens.png';
+import hotbutteredapple from './assets/recipe-icons/hotbutteredapple.png'
+import energizinghoneyedapple from './assets/recipe-icons/energizinghoneyedapple.png';
+import honeycrepe from './assets/recipe-icons/honeycrepe.png';
 import honeyedfruit from './assets/recipe-icons/honeyedfruit.png';
-import meatandgreensonwhiteplate from './assets/recipe-icons/meatandgreensonwhiteplate.png';
-import meatandpoultryonblackplate from './assets/recipe-icons/meatandpoultryonblackplate.png';
+import glazedveggies from './assets/recipe-icons/glazedveggies.png';
+import spicypeppersteak from './assets/recipe-icons/spicypeppersteak.png';
 import meatandrice from './assets/recipe-icons/meatandrice.png';
-import meatandsaladonblackplate from './assets/recipe-icons/meatandsaladonblackplate.png';
-import meatcurryrice from './assets/recipe-icons/meatcurryrice.png';
+import meatandseafoodfry from './assets/recipe-icons/meatandseafoodfry.png';
+import primemeatcurry from './assets/recipe-icons/primemeatcurry.png';
 import meatmushroomskewer from './assets/recipe-icons/meatmushroomskewer.png';
-import meatonleaf from './assets/recipe-icons/meatonleaf.png';
-import meatonwhiteplate from './assets/recipe-icons/meatonwhiteplate.png';
+import steamedmeat from './assets/recipe-icons/steamedmeat.png';
+import glazedmeat from './assets/recipe-icons/glazedmeat.png';
 import meatpie from './assets/recipe-icons/meatpie.png';
-import meatricesauce from './assets/recipe-icons/meatricesauce.png';
+import gourmetmeatcurry from './assets/recipe-icons/gourmetmeatcurry.png';
 import meatskewer from './assets/recipe-icons/meatskewer.png';
 import meatstew from './assets/recipe-icons/meatstew.png';
-import meatvegetablestew from './assets/recipe-icons/meatvegetablestew.png';
-import meatwrappedonigirionleaf from './assets/recipe-icons/meatwrappedonigirionleaf.png';
-import meatypoultrystew from './assets/recipe-icons/meatypoultrystew.png';
+import meatyriceballs from './assets/recipe-icons/meatyriceballs.png';
+import gourmetmeatstew from './assets/recipe-icons/gourmetmeatstew.png';
 import monstercake from './assets/recipe-icons/monstercake.png';
 import monstercurry from './assets/recipe-icons/monstercurry.png';
-import moremeatandrice from './assets/recipe-icons/moremeatandrice.png';
-import moremeatandsaladonblackplate from './assets/recipe-icons/moremeatandsaladonblackplate.png';
-import moremeatvegetablestew from './assets/recipe-icons/moremeatvegetablestew.png';
+import gourmetmeatandricebowl from './assets/recipe-icons/gourmetmeatandricebowl.png';
+import primemeatandseafoodfry from './assets/recipe-icons/primemeatandseafoodfry.png';
+import primemeatstew from './assets/recipe-icons/primemeatstew.png';
 import mugofdrink from './assets/recipe-icons/mugofdrink.png';
 import mushroomkebabs from './assets/recipe-icons/mushroomkebabs.png';
-import mushroomonigirionleaf from './assets/recipe-icons/mushroomonigirionleaf.png';
-import mushroompasty from './assets/recipe-icons/mushroompasty.png';
+import mushroomriceballs from './assets/recipe-icons/mushroomonigirionleaf.png';
+import mushroomomelet from './assets/recipe-icons/mushroomomelet.png';
 import mushroomrisotto from './assets/recipe-icons/mushroomrisotto.png';
-import mushroomsfruitonwhiteplate from './assets/recipe-icons/mushroomsfruitonwhiteplate.png';
+import fruitandmushroommix from './assets/recipe-icons/fruitandmushroommix.png';
 import mushroomskewer from './assets/recipe-icons/mushroomskewer.png';
-import mushroomsonleaf from './assets/recipe-icons/mushroomsonleaf.png';
-import mushroomsonwhiteplate from './assets/recipe-icons/mushroomsonwhiteplate.png';
+import steamedmushrooms from './assets/recipe-icons/steamedmushrooms.png';
+import glazedmushrooms from './assets/recipe-icons/glazedmushrooms.png';
 import mushroomsoup from './assets/recipe-icons/mushroomsoup.png';
 import nutloaf from './assets/recipe-icons/nutloaf.png';
-import onigirionleaf from './assets/recipe-icons/onigirionleaf.png';
-import pannacotta from './assets/recipe-icons/pannacotta.png';
-import pavlova from './assets/recipe-icons/pavlova.png';
-import potatopie from './assets/recipe-icons/potatopie.png';
+import seafoodriceballs from './assets/recipe-icons/seafoodriceballs.png';
+import eggpudding from './assets/recipe-icons/eggpudding.png';
+import fruitcake from './assets/recipe-icons/fruitcake.png';
+import eggtart from './assets/recipe-icons/eggtart.png';
 import poultrycurryrice from './assets/recipe-icons/poultrycurryrice.png';
-import poultryskewer from './assets/recipe-icons/poultryskewer.png';
+import spicedmeatskewer from './assets/recipe-icons/spicedmeatskewer.png';
 import prawnfriedrice from './assets/recipe-icons/prawnfriedrice.png';
-import primemeatandpoultry from './assets/recipe-icons/primemeatandpoultry.png';
-import pultrystew from './assets/recipe-icons/pultrystew.png';
-import pumpkinsoup from './assets/recipe-icons/pumpkinsoup.png';
-import purpleonigiriblueleaf from './assets/recipe-icons/purpleonigiriblueleaf.png';
-import purplesoup from './assets/recipe-icons/purplesoup.png';
-import purplestewinpot from './assets/recipe-icons/purplestewinpot.png';
-import redfishhollandaise from './assets/recipe-icons/redfishhollandaise.png';
-import salmonhollandaise from './assets/recipe-icons/salmonhollandaise.png';
-import salmononwhiteplate from './assets/recipe-icons/salmononwhiteplate.png';
-import seafoodcurryrice from './assets/recipe-icons/seafoodcurryrice.png';
+import saltgrilledgourmetmeat from './assets/recipe-icons/saltgrilledgourmetmeat.png';
+import creamyseafoodsoup from './assets/recipe-icons/creamyseafoodsoup.png';
+import pumpkinstew from './assets/recipe-icons/pumpkinstew.png';
+import pumpkinpie from './assets/recipe-icons/pumpkinpie.png';
+import monsterriceballs from './assets/recipe-icons/monsterriceballs.png';
+import monstersoup from './assets/recipe-icons/monstersoup.png';
+import monsterstew from './assets/recipe-icons/monsterstew.png';
+import porgymeuniere from './assets/recipe-icons/porgymeuniere.png';
+import heartysalmonmeuniere from './assets/recipe-icons/heartysalmonmeuniere.png';
+import glazedseafood from './assets/recipe-icons/glazedseafood.png';
+import saltgrilledcrab from './assets/recipe-icons/saltgrilledcrab.png'
 import seafoodfriedrice from './assets/recipe-icons/seafoodfriedrice.png';
+import salmonrisotto from './assets/recipe-icons/salmonrisotto.png';
 import seafoodpaellaorangebowl from './assets/recipe-icons/seafoodpaellaorangebowl.png';
 import seafoodskewer from './assets/recipe-icons/seafoodskewer.png';
-import seafoodsoup from './assets/recipe-icons/seafoodsoup.png';
-import seafoodvegetablefriedrice from './assets/recipe-icons/seafoodvegetablefriedrice.png';
+import snailchowder from './assets/recipe-icons/snailchowder.png';
+import vegetablerisotto from './assets/recipe-icons/vegetablerisotto.png';
 import smallmeatcurryrice from './assets/recipe-icons/smallmeatcurryrice.png';
 import smallpoultrycurryrice from './assets/recipe-icons/smallpoultrycurryrice.png';
-import smallvegetablecurryrice from './assets/recipe-icons/smallvegetablecurryrice.png';
+import curryrice from './assets/recipe-icons/curryrice.png';
+import steamedtomatoes from './assets/recipe-icons/steamedtomatoes.png'
 import stuffedpumpkin from './assets/recipe-icons/stuffedpumpkin.png';
 import tacoandsaladonwhiteplate from './assets/recipe-icons/tacoandsaladonwhiteplate.png';
-import threepoultryskewers from './assets/recipe-icons/threepoultryskewers.png';
+import gourmetspicedmeatskewer from './assets/recipe-icons/gourmetspicedmeatskewer.png';
 import twofishskewers from './assets/recipe-icons/twofishskewers.png';
 import twomeatskewers from './assets/recipe-icons/twomeatskewers.png';
-import twopoultryskewers from './assets/recipe-icons/twopoultryskewers.png';
+import primespicedmeatskewer from './assets/recipe-icons/primespicedmeatskewer.png';
 import vegetablecurryrrice from './assets/recipe-icons/vegetablecurryrrice.png';
-import vegetabledahl from './assets/recipe-icons/vegetabledahl.png';
-import vegetableonigirionleaf from './assets/recipe-icons/vegetableonigirionleaf.png';
-import vegetablepasty from './assets/recipe-icons/vegetablepasty.png';
-import vegetablepoultryfriedrice from './assets/recipe-icons/vegetablepoultryfriedrice.png';
-import vegetableseafoodfriedrice from './assets/recipe-icons/vegetableseafoodfriedrice.png';
+import currypilaf from './assets/recipe-icons/currypilaf.png';
+import veggiericeballs from './assets/recipe-icons/vegetableonigirionleaf.png';
+import vegetableomelet from './assets/recipe-icons/vegetableomelet.png';
+import primepoultrypilaf from './assets/recipe-icons/primepoultrypilaf.png';
+import poultrypilaf from './assets/recipe-icons/poultrypilaf.png';
 import vegetablesoup from './assets/recipe-icons/vegetablesoup.png';
-import vegetablestew from './assets/recipe-icons/vegetablestew.png';
-import vegonwhiteplate from './assets/recipe-icons/vegonwhiteplate.png';
-import wrappedlolly from './assets/recipe-icons/wrappedlolly.png';
-
+import veggiecreamsoup from './assets/recipe-icons/veggiecreamsoup.png';
+import saltgrilledgreens from './assets/recipe-icons/saltgrilledgreens.png';
+import rockhardfood from './assets/recipe-icons/rocks.png';
+import energizinghoneycandy from './assets/recipe-icons/energizinghoneycandy.png';
+import tomatomushroomstew from './assets/recipe-icons/tomatomushroomstew.png';
+import tomatoseafoodsoup from './assets/recipe-icons/tomatoseafoodsoup.png';
+import fragrantseafoodstew from './assets/recipe-icons/fragrantseafoodstew.png';
+import noblepursuit from './assets/recipe-icons/noblepursuit.png';
+import cheesycurry from './assets/recipe-icons/cheesycurry.png';
+import cheesytomato from './assets/recipe-icons/cheesytomato.png';
+import fruitytomatostew from './assets/recipe-icons/fruitytomatostew.png';
+import meltycheesybread from './assets/recipe-icons/meltycheesybread.png';
+import simmeredtomato from './assets/recipe-icons/simmeredtomato.png';
+import darkcurry from './assets/recipe-icons/darkcurry.png';
+import darkriceball from './assets/recipe-icons/darkriceball.png';
+import cheesymeatbowl from './assets/recipe-icons/cheesymeatbowl.png';
+import crabrisotto from './assets/recipe-icons/crabrisotto.png';
+import gourmetcheesymeatbowl from './assets/recipe-icons/gourmetcheesymeatbowl.png';
+import hyliantomatopizza from './assets/recipe-icons/hyliantomatopizza.png';
+import primecheesymeatbowl from './assets/recipe-icons/primecheesymeatbowl.png';
+import veggieporridge from './assets/recipe-icons/veggieporridge.png';
+import darkcake from './assets/recipe-icons/darkcake.png';
+import darksoup from './assets/recipe-icons/darksoup.png';
+import cheesecake from './assets/recipe-icons/cheesecake.png';
+import cheesyomelet from './assets/recipe-icons/cheesyomelet.png';
+import cheesyrisotto from './assets/recipe-icons/cheesyrisotto.png';
+import crunchyfriedrice from './assets/recipe-icons/crunchyfriedrice.png';
+import cookedstambulb from './assets/recipe-icons/cookedstambulb.png';
 
 export const recipeImages = {
+    'Cooked Stambulb': cookedstambulb,
+    'Crunchy Fried Rice': crunchyfriedrice,
+    'Cheesy Risotto': cheesyrisotto,
+    'Cheesy Omelet': cheesyomelet,
+    'Cheesecake': cheesecake,
+    'Dark Soup': darksoup,
+    'Dark Cake': darkcake,
+    'Veggie Porridge': veggieporridge,
+    'Prime Cheesy Meat Bowl': primecheesymeatbowl,
+    'Hylian Tomato Pizza':  hyliantomatopizza,
+    'Gourmet Cheesy Meat Bowl': gourmetcheesymeatbowl,
+    'Crab Risotto': crabrisotto,
+    'Cheesy Meat Bowl': cheesymeatbowl,
+    'Dark Rice Ball': darkriceball,
+    'Dark Curry': darkcurry,
+    'Simmered Tomato': simmeredtomato,
+    'Noble Pursuit': noblepursuit,
+    'Melty Cheesy Bread': meltycheesybread,
+    'Cheesy Curry': cheesycurry,
+    'Cheesy Tomato': cheesytomato,
+    'Fragrant Seafood Stew': fragrantseafoodstew,
+    'Fruity Tomato Stew': fruitytomatostew,
+    'Deep Fried Thigh': deepfriedthigh,
+    'Deep Fried Drumstick': deepfrieddrumstick,
+    'Deep-Fried Bird Roast': deepfriedbirdroast,
+    'Dark Stew': darkstew,
+    'Tomato Mushroom Stew': tomatomushroomstew,
+    'Tomato Seafood Soup': tomatoseafoodsoup,
+    'Buttered Stambulb': butteredstambulb,
     'Apple Pie': applepie,
-    'Baguette': baguette,
-    'Crepe with Berries': berriescrepe,
-    'Black Fish with Hollandaise': blackfishhollandaise,
-    'Crab Stew': crabstew,
-    'Carrot Soup': carrotsoup,
-    'Chilli on White Plate': chillisonwhiteplate,
-    'Crab Fried Rice': crabfriedrice,
-    'Crab Vegetable Fried Rice': crabvegetablefriedrice,
-    'Curried Meat and Vegetables': curriedmeatandvegetables,
-    'Curried Mushrooms': curriedmushrooms,
-    'Drumstick Curry Rice': drumstickcurryrice,
+    'Wheat Bread': wheatbread,
+    'Wildberry Crepe': wildberrycrepe,
+    'Plain Crepe': plaincrepe,
+    'Seafood Meuniere': seafoodmeuniere,
+    'Crab Stir Fry': crabstirfry,
+    'Carrot Stew': carrotstew,
+    'Cheesy Baked Fish': cheesybakedfish,
+    'Spicy Sauteed Peppers': spicysauteedpeppers,
+    'Crab Omelet with Rice': crabomeletwithrice,
+    'Herb Saute': herbsaute,
+    'Fragrant Mushroom Saute': fragrantmushroomsaute,
+    'Prime Poultry Curry': primepoultrycurry,
     'Dubious Food': dubiousfood,
-    'Vegetable Drumstick Fried Rice': dvegetabledrumstickfriedrice,
-    'Egg Fried Rice': eggfriedrice,
-    'Even More Meat at Rice': evenmoremeatanrice,
-    'Fish and Meat on Black Plate': fishandmeatonblackplate,
-    'Fish Mushroom Skewer': fishmushroomskewer,
-    'Fish on Black Plate': fishonblackplate,
-    'Fish on Leaf': fishonleaf,
+    'Gourmet Poultry Pilaf': gourmetpoultrypilaf,
+    'Fried Egg and Rice': friedeggandrice,
+    'Prime Meat and Rice Bowl': primemeatandricebowl,
+    'Gourmet Meat and Seafood Fry': gourmetmeatandseafoodfry,
+    'Fish and Mushroom Skewer': fishmushroomskewer,
+    'Spicy Pepper Seafood': spicypepperseafood,
+    'Steamed Fish': steamedfish,
     'Fish Pie': fishpie,
     'Fish Skewer': fishskewer,
-    'Fried Acorns': friedacorns,
-    'Fried Bananas on Leaf': friedbananasonleaf,
-    'Fried Fish': friedfish,
-    'Fried Meat and Drumstick': friedmeatanddrumstick,
-    'Fried Meat and Poultry': friedmeatandpoultry,
-    'Fried Mushrooms on White Plate': friedmushroomsonwhiteplate,
-    'Fried Vegetables': friedvegetables,
-    'Fruit in Large White Bowl': fruitinlargewhitebowl,
-    'Fruit in White Bowl': fruitinwhitebowl,
-    'Fruit on Leaf': fruitonleaf,
+    'Sauteed Nuts': sauteednuts,
+    'Mighty Fried Bananas': friedbananasonleaf,
+    'Salt-Grilled Fish': saltgrilledfish,
+    'Salt-Grilled Meat': saltgrilledmeat,
+    'Salt-Grilled Prime Meat': saltgrilledprimemeat,
+    'Salt-Grilled Mushrooms': saltgrilledmushrooms,
+    'Salt-Grilled Greens': saltgrilledgreens,
+    'Copious Simmered Fruit': copioussimmeredfruit,
+    'Simmered Fruit': simmeredfruit,
+    'Steamed Fruit': steamedfruit,
+    'Rock-Hard Food': rockhardfood,
     'Fruit Pie': fruitpie,
-    'Hearty Radish Stew': heartyradishstew,
-    'Herbs and Greens in White Bowl': herbsandgreensinwhitebowl,
-    'Honeyed Apple': honeyedapple,
-    'Honeyed Crepe': honeyedcrepe,
-    'Honeyed Fruit': honeyedfruit,
-    'Meat and Greens on White Plate': meatandgreensonwhiteplate,
-    'Meat and Poultry on Black Plate': meatandpoultryonblackplate,
-    'Meat and Rice': meatandrice,
-    'Meat and Salad on Black Plate': meatandsaladonblackplate,
-    'Meat Curry Rice': meatcurryrice,
-    'Meat Mushroom Skewer': meatmushroomskewer,
-    'Meat on Leaf': meatonleaf,
-    'Meat on White Plate': meatonwhiteplate,
+    'Creamy Heart Soup': creamyheartsoup,
+    'Creamy Meat Soup': creamymeatsoup,
+    'Copious Fried Wild Greens': copiousfriedwildgreens,
+    'Honeyed Apple': energizinghoneyedapple,
+    'Honey Crepe': honeycrepe,
+    'Honeyed Fruits': honeyedfruit,
+    'Hot Buttered Apple': hotbutteredapple,
+    'Glazed Veggies': glazedveggies,
+    'Spicy Pepper Steak': spicypeppersteak,
+    'Meat and Rice Bowl': meatandrice,
+    'Meat and Seafood Fry': meatandseafoodfry,
+    'Prime Meat Curry': primemeatcurry,
+    'Meat and Mushroom Skewer': meatmushroomskewer,
+    'Steamed Meat': steamedmeat,
+    'Glazed Meat': glazedmeat,
     'Meat Pie': meatpie,
-    'Meat Rice Sauce': meatricesauce,
+    'Gourmet Meat Curry': gourmetmeatcurry,
     'Meat Skewer': meatskewer,
     'Meat Stew': meatstew,
-    'Meat Vegetable Stew': meatvegetablestew,
-    'Meat Wrapped Onigiri on Leaf': meatwrappedonigirionleaf,
-    'Meaty Poultry Stew': meatypoultrystew,
+    'Meaty Rice Balls': meatyriceballs,
+    'Gourmet Meat Stew': gourmetmeatstew,
     'Monster Cake': monstercake,
     'Monster Curry': monstercurry,
-    'More Meat and Rice': moremeatandrice,
-    'More Meat and Salad on Black Plate': moremeatandsaladonblackplate,
-    'More Meat Vegetable Stew': moremeatvegetablestew,
+    'Gourmet Meat and Rice Bowl': gourmetmeatandricebowl,
+    'Prime Meat and Seafood Fry': primemeatandseafoodfry,
+    'Prime Meat Stew': primemeatstew,
     'Mug of Drink': mugofdrink,
-    'Mushroom Kebabs': mushroomkebabs,
-    'Mushroom Onigiri on Leaf': mushroomonigirionleaf,
-    'Mushroom Pasty': mushroompasty,
+    'Copious Mushroom Skewers': mushroomkebabs,
+    'Mushroom Rice Balls': mushroomriceballs,
+    'Mushroom Omelet': mushroomomelet,
     'Mushroom Risotto': mushroomrisotto,
-    'Mushrooms Fruit on White Plate': mushroomsfruitonwhiteplate,
+    'Fruit and Mushroom Mix': fruitandmushroommix,
     'Mushroom Skewer': mushroomskewer,
-    'Mushrooms on Leaf': mushroomsonleaf,
-    'Mushrooms on White Plate': mushroomsonwhiteplate,
-    'Mushroom Soup': mushroomsoup,
-    'Nut Loaf': nutloaf,
-    'Onigiri on Leaf': onigirionleaf,
-    'Panna Cotta': pannacotta,
-    'Pavlova': pavlova,
-    'Potato Pie': potatopie,
-    'Poultry Curry Rice': poultrycurryrice,
-    'Poultry Skewer': poultryskewer,
+    'Steamed Mushrooms': steamedmushrooms,
+    'Glazed Mushrooms': glazedmushrooms,
+    'Cream of Mushroom Soup': mushroomsoup,
+    'Nut Cake': nutloaf,
+    'Seafood Rice Balls': seafoodriceballs,
+    'Egg Pudding': eggpudding,
+    'Fruit Cake': fruitcake,
+    'Egg Tart': eggtart,
+    'Gourmet Poultry Curry': poultrycurryrice,
+    'Spiced Meat Skewer': spicedmeatskewer,
     'Prawn Fried Rice': prawnfriedrice,
-    'Prime Meat and Poultry': primemeatandpoultry,
-    'Poultry Stew': pultrystew,
-    'Pumpkin Soup': pumpkinsoup,
-    'Purple Onigiri on Blue Leaf': purpleonigiriblueleaf,
-    'Purple Soup': purplesoup,
-    'Purple Stew in Pot': purplestewinpot,
-    'Red Fish Hollandaise': redfishhollandaise,
-    'Salmon Hollandaise': salmonhollandaise,
-    'Salmon on White Plate': salmononwhiteplate,
-    'Seafood Curry Rice': seafoodcurryrice,
+    'Salt-Grilled Gourmet Meat': saltgrilledgourmetmeat,
+    'Creamy Seafood Soup': creamyseafoodsoup,
+    'Pumpkin Stew': pumpkinstew,
+    'Pumpkin Pie': pumpkinpie,
+    'Monster Rice Balls': monsterriceballs,
+    'Monster Soup': monstersoup,
+    'Monster Stew': monsterstew,
+    'Porgy Meuniere': porgymeuniere,
+    'Salmon Meuniere': heartysalmonmeuniere,
+    'Glazed Seafood': glazedseafood,
+    'Salt-Grilled Crab': saltgrilledcrab,
     'Seafood Fried Rice': seafoodfriedrice,
-    'Seafood Paella in Orange Bowl': seafoodpaellaorangebowl,
+    'Salmon Risotto': salmonrisotto,
+    'Seafood Paella': seafoodpaellaorangebowl,
     'Seafood Skewer': seafoodskewer,
-    'Seafood Soup': seafoodsoup,
-    'Seafood Vegetable Fried Rice': seafoodvegetablefriedrice,
-    'Small Meat Curry Rice': smallmeatcurryrice,
-    'Small Poultry Curry Rice': smallpoultrycurryrice,
-    'Small Vegetable Curry Rice': smallvegetablecurryrice,
-    'Stuffed Pumpkin': stuffedpumpkin,
+    'Snail Chowder': snailchowder,
+    'Vegetable Risotto': vegetablerisotto,
+    'Meat Curry ': smallmeatcurryrice,
+    'Poultry Curry': smallpoultrycurryrice,
+    'Curry Rice': curryrice,
+    'Steamed Tomatoes': steamedtomatoes,
+    'Meat-Stuffed Pumpkins': stuffedpumpkin,
     'Taco and Salad on White Plate': tacoandsaladonwhiteplate,
-    'Three Poultry Skewers': threepoultryskewers,
-    'Two Fish Skewers': twofishskewers,
-    'Two Meat Skewers': twomeatskewers,
-    'Two Poultry Skewers': twopoultryskewers,
-    'Vegetable Curry Rice': vegetablecurryrrice,
-    'Vegetable Dahl': vegetabledahl,
-    'Vegetable Onigiri on Leaf': vegetableonigirionleaf,
-    'Vegetable Pasty': vegetablepasty,
-    'Vegetable Poultry Fried Rice': vegetablepoultryfriedrice,
-    'Vegetable Seafood Fried Rice': vegetableseafoodfriedrice,
-    'Vegetable Soup': vegetablesoup,
-    'Vegetable Stew': vegetablestew,
-    'Vegetables on White Plate': vegonwhiteplate,
-    'Wrapped Lolly': wrappedlolly,
+    'Gourmet Spiced Meat Skewer': gourmetspicedmeatskewer,
+    'Copious Seafood Skewers': twofishskewers,
+    'Copious Meat Skewers': twomeatskewers,
+    'Prime Spiced Meat Skewer': primespicedmeatskewer,
+    'Vegetable Curry': vegetablecurryrrice,
+    'Curry Pilaf': currypilaf,
+    'Veggie Rice Balls': veggiericeballs,
+    'Vegetable Omelet': vegetableomelet,
+    'Prime Poultry Pilaf': primepoultrypilaf,
+    'Poultry Pilaf': poultrypilaf,
+    'Cream of Vegetable Soup': vegetablesoup,
+    'Veggie Cream Soup': veggiecreamsoup,
+    'Fried Wild Greens': friedwildgreens,
+    'Energizing Honey Candy': energizinghoneycandy,
 };
 
 console.log('Available recipe image keys:', Object.keys(recipeImages));  // Add this line
