@@ -62,14 +62,15 @@ const CreateRecipe = () => {
     
     <div className="flex flex-col items-center justify-start min-h-screen">
       <div className="h-16"></div>
-      <div style={{height: "50vh"}} className="w-full bg-black text-white flex flex-col items-center justify-start pt-4">
-      <h1 className="text-4xl font-custom">Create New Recipe</h1>
+      <div className="max-w-sm mx-auto px-5 py-4 rounded bg-black text-white ">
+      <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Recipe Name" required />
-        <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Choose Effects" required />
-        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Recipe Description" required /> 
+      <h3 className='text-white font-bold py-2'>Recipe Details</h3>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
+        <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Effects" required />
+        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Description" required /> 
 
-        <h3>Select Recipe Image</h3>
+        <h3 className='text-white font-bold py-2'>Select Recipe Image</h3>
         <select onChange={(e) => {
           console.log("Selected image: ", e.target.value);
           setImage(e.target.value);
@@ -82,7 +83,7 @@ const CreateRecipe = () => {
         </select>
         
         {image && <img className="recipe-image" src={recipeImages[image]} alt={image} />}
-        <h3>Select Ingredients</h3>
+        <h3 className='text-white font-bold py-2'>Select Ingredients</h3>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
             <select id={`ingredient${index + 1}`} value={ingredient.id} onChange={(e) => handleIngredientChange(index, e.target.value)} required>

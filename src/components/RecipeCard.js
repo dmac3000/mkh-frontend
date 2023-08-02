@@ -12,7 +12,7 @@ const RecipeCard = ({ recipe }) => {
   console.log('Recipe image:', recipe.imageFilename);
 
   return (
-    <div className="rounded-lg shadow-lg overflow-hidden mx-4 relative">
+    <div className="w-96 rounded-lg shadow-lg overflow-hidden mx-auto relative">
       {/* This is your background image. Change width of recipe card later */}
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
 
@@ -28,8 +28,8 @@ const RecipeCard = ({ recipe }) => {
       </div>
 
       {/* Recipe description */}
-      <div className="p-4 absolute top-44 left-0 bg-opacity-50 w-full text-center">
-        <p className="text-xl">{recipe.description}</p>
+      <div className="p-4 absolute top-48 left-10 bg-opacity-50 w-full text-left">
+        <p className="text-sm">{recipe.description}</p>
       </div>
 
       <div className="p-4 absolute top-52 left-0 bg-opacity-50 w-full">
@@ -49,3 +49,4 @@ const RecipeCard = ({ recipe }) => {
 };
 
 export default RecipeCard;
+

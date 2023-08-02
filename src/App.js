@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import HomePage from './pages/HomePage';
 import CreateRecipe from './pages/CreateRecipe';
 import ViewRecipe from './pages/ViewRecipe';
+import ViewAllRecipes from './pages/ViewAllRecipes';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<HomePage />} />  
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/view-recipe/:id" element={<ViewRecipe />} />
+          <Route path="/view-all/" element={<ViewAllRecipes />} />
 
         </Routes>
       </div>

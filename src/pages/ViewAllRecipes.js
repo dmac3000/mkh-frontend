@@ -19,10 +19,9 @@ const ViewAllRecipes = () => {
     }
   
     return (
-      <div className="container mx-auto py-6 text-white">
-        <h1 className="text-5xl mb-4 ">Welcome, traveller!</h1>
-        <p className='text-white'>It's dangerous to cook alone. Take these recipes!</p>
-        <Carousel className='pt-8'>
+      <div className="container mx-auto py-4">
+        <h1 className="text-4xl mb-4 text-white">View Recipes</h1>
+        <Carousel>
           {recipes.map(recipe => (
             <div key={recipe._id}>
               <RecipeCard recipe={recipe} />
