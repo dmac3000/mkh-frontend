@@ -61,8 +61,8 @@ const CreateRecipe = () => {
   return (
     
     <div className="flex flex-col items-center justify-start min-h-screen">
-      <div className="h-16"></div>
-      <div className="max-w-sm mx-auto px-5 py-4 rounded bg-black text-white ">
+      <div className="h-10"></div>
+      <div className="max-w-sm mx-auto px-5 py-4 rounded bg-black/70 text-white ">
       <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
       <form onSubmit={handleSubmit}>
       <h3 className='text-white font-bold py-2'>Recipe Details</h3>

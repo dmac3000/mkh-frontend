@@ -4,6 +4,7 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
+  
   return (
     // Logo
     <div className="navbar bg-white justify-between md:items-start">

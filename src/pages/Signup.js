@@ -32,8 +32,8 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
-      <div className="h-16"></div>
-      <div className="w-full max-w-sm px-5 py-4 mx-auto bg-black rounded shadow-md">
+      <div className="h-10"></div>
+      <div className="w-full max-w-sm px-5 py-4 mx-auto bg-black/70 rounded-2xl shadow-md">
         <h1 className="mb-6 text-4xl text-white">Sign Up</h1>
         {message && <p className="mb-4 text-red-500">{message}</p>}
         <form onSubmit={handleSubmit}>
@@ -78,12 +78,12 @@ const Signup = () => {
           </div>
           <div className="flex items-center justify-between">
             <button 
-              className="px-4 py-2 font-bold text-white bg-[#46B8DA] rounded hover:bg-[#008FCB] focus:outline-none focus:shadow-outline" 
+              className="px-4 py-2 font-bold text-white bg-totk-green rounded hover:bg-totk-green-light focus:outline-none focus:shadow-outline" 
               type="submit"
             >
               Sign Up
             </button>
-            <Link to="/login" className="inline-block mt-4 text-sm font-bold text-[#46B8DA] align-baseline hover:text-[#008FCB]">
+            <Link to="/login" className="inline-block text-sm font-bold text-white align-baseline hover:text-totk-green-light">
               Already have an account? Login!
             </Link>
           </div>
