@@ -14,6 +14,7 @@ function App() {
     <Router>
       <Navbar/>
       <div className='background-image'>
+      <div className='navbar-fretwork'></div>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -25,6 +26,7 @@ function App() {
 
         </Routes>
       </div>
+      
       {/* </div> */}
     </Router>
   )

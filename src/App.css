@@ -34,8 +34,15 @@ p {
   background-image: url('assets/seamless-bg.png');
   background-color: black;
   background-repeat: repeat;
-  height: 100vh;
+  height: 78vh;
   background-size: auto;
+}
+
+.navbar-fretwork {
+  background-image: url('./assets/navbar-fretwork.png');
+  background-repeat: repeat-x;
+  background-position: bottom;
+  height: 3vmin;
 }
 
 .ingredient-image {
@@ -54,14 +61,15 @@ p {
 /* } */
 
 .navbar {
-  /* background-image: url('./assets/navbar-fretwork.png'); */
-  background-repeat: repeat-x;
-  background-position: bottom;
   height: 22vmin;
+  /* background-image: url('./assets/navbar-fretwork.png');
+  background-repeat: repeat-x;
+  background-position: bottom; */
 }
 
 .App {
   text-align: center;
+
 }
 
 .App-logo {

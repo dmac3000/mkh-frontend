@@ -20,11 +20,11 @@ const ViewAllRecipes = () => {
   
     return (
       
-      <div className="container mx-auto px-16 py-0 text-white">
-        <div className="h-10"></div>
+      <div className="container mx-auto px-16 text-white">
+        <div className="h-6"></div>
         <div className='bg-black/70 py-6 px-6 rounded-2xl'>
-        <h1 className="text-4xl text-white mb-2">Welcome, traveller!</h1>
-        <p className='text-white pl-2 mb-2'>It's dangerous to cook alone.</p><p className='text-white pl-2 mb-2'> Take these recipes!</p>
+        <h1 className="text-4xl text-white mb-2">Welcome, Traveller!</h1>
+        <p className='text-white pl-2'>It's dangerous to cook alone.</p><p className='text-white pl-2 mb-2'> Take these recipes!</p>
         <Carousel>
           {recipes.map(recipe => (
             <div key={recipe._id}>
