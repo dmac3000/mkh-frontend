@@ -36,7 +36,7 @@ const CreateRecipe = () => {
         effects,
         description,
         ingredients: ingredientNames,
-        imageFilename: image
+        imageFilename: image,
       };
       console.log("Request Body: ", requestBody);
       const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody);
@@ -69,15 +69,19 @@ const CreateRecipe = () => {
         <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Choose Effects" required />
         <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Recipe Description" required /> 
 
-        <h3>Select Recipeee Image</h3>
-        <select onChange={(e) => setImage(e.target.value)} required>
+        <h3>Select Recipe Image</h3>
+        <select onChange={(e) => {
+          console.log("Selected image: ", e.target.value);
+          setImage(e.target.value);
+        }} required>
           <option value="">Select an image</option>
           {/* Replace these options with the actual list of available images */}
           {Object.keys(recipeImages).map((recipeName) => (
             <option value={recipeName} key={recipeName}>{recipeName}</option>
           ))}
         </select>
-
+        
+        {image && <img className="recipe-image" src={recipeImages[image]} alt={image} />}
         <h3>Select Ingredients</h3>
         {ingredients.map((ingredient, index) => (
           <div key={index}>
