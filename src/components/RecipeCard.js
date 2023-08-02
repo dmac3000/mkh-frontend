@@ -28,12 +28,12 @@ const RecipeCard = ({ recipe }) => {
       </div>
 
       {/* Recipe description */}
-      <div className="p-4 absolute top-48 left-10 bg-opacity-50 w-full text-left">
+      <div className="p-4 absolute top-44 bg-opacity-50 w-full text-center">
         <p className="text-sm">{recipe.description}</p>
       </div>
 
-      <div className="p-4 absolute top-52 left-0 bg-opacity-50 w-full">
-        <div className="flex justify-center space-x-2">
+      <div className="p-4 absolute top-40 left-0 bg-opacity-50 w-full">
+        <div className="flex justify-center space-x-2 m-12">
           {recipe.ingredients.map((ingredient, index) => (
             <img 
               key={ingredient._id} 

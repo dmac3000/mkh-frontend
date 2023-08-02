@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import CreateRecipe from './pages/CreateRecipe';
 import ViewRecipe from './pages/ViewRecipe';
 import ViewAllRecipes from './pages/ViewAllRecipes';
+import SearchResults from './pages/SearchResults';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/create-recipe" element={<CreateRecipe />} />
           <Route path="/view-recipe/:id" element={<ViewRecipe />} />
           <Route path="/view-all/" element={<ViewAllRecipes />} />
+          <Route path="/search" element={<SearchResults />} />
 
         </Routes>
       </div>

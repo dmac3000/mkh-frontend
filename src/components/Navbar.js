@@ -1,10 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import logo from '../assets/mkh-logo.svg';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+  const [search, setSearch] = useState('');
+  const [results, setResults] = useState([]); // Create a state variable for the search results
+  const navigate = useNavigate(); // Add this line
+
+  const handleSearchChange = async (event) => {
+    const newSearchTerm = event.target.value;
+    setSearch(newSearchTerm);
   
+    if (newSearchTerm) {
+      try {
+        const response = await axios.get(`http://localhost:3333/api/recipes/search?term=${newSearchTerm}`);
+        setResults(response.data); // Store the search results in the state
+        console.log(results) // log for debugging
+        navigate('/search', { state: { results, term: search } }); // Pass the search term here
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    }
+  };
   return (
     // Logo
     <div className="navbar bg-white justify-between md:items-start">
@@ -18,7 +37,13 @@ export default function Navbar() {
 
       {/* search bar */}
       <div className="form-control mr-4 md:items-center pt-20">
-        <input type="text" placeholder="Search by name or effect" className="input input-bordered bg-white text-black w-24 md:w-64" />
+        <input 
+          type="text" 
+          placeholder="Search by name or effect" 
+          className="input input-bordered bg-white text-black w-24 md:w-64"
+          value={search} 
+          onChange={handleSearchChange} 
+        />
       </div>
 
       {/* div for all navbar links */}
