@@ -23,15 +23,16 @@ const Login = () => {
   
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.userId); 
+      localStorage.setItem('username', data.username);  // Add this line
       console.log('Stored token:', data.token);
       setMessage('Logged in successfully'); // Set success message
       setIsLoggedIn(true);  // Set the isLoggedIn state to true
-
+  
       // Redirect to homepage after 2 seconds
       setTimeout(() => {
         navigate('/');
-      }, 2000);
-
+      }, 1000);
+  
     } catch (err) {
       if (err.response) {
         setError(err.response.data.message);     

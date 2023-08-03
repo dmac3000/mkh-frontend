@@ -11,7 +11,7 @@ export default function Navbar() {
   const [results, setResults] = useState([]); // Create a state variable for the search results
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
-
+  const [message, setMessage] = useState('');
   const handleSearchChange = async (event) => {
     const newSearchTerm = event.target.value;
     setSearch(newSearchTerm);
@@ -30,7 +30,11 @@ export default function Navbar() {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('username'); // Also remove the username
     setIsLoggedIn(false);
+    setMessage('Logged out successfully'); // Set the message
+    setTimeout(() => setMessage(''), 2000); // Clear the message after 2 seconds
+    navigate('/');  // Navigate to home
   };
 
 
@@ -61,11 +65,12 @@ export default function Navbar() {
         {/* Div for top row navbar links */}
         <div className="mt-4 md:mt-6">
           <div className="flex justify-end pb-10">
-            {
-              isLoggedIn 
-              ? <button className="text-sm text-black italic font-bold font-sans mr-4 pr-8" onClick={logout}>Logout</button>
-              : <Link to="/login" className="text-sm text-black italic font-bold font-sans mr-4 pr-8">Login</Link>
-            }
+          {message && <p className="text-totk-green-light pr-4 font-bold text-sm">{message}</p>}
+          {
+            isLoggedIn 
+            ? <button className="text-sm text-black italic font-bold font-sans mr-4 pr-8" onClick={logout}>Logout ({localStorage.getItem('username')})</button>
+            : <Link to="/login" className="text-sm text-black italic font-bold font-sans mr-4 pr-8">Login</Link>
+          }
             <Link
               to="/signup"
               className="text-sm text-black italic font-bold font-sans mr-2"
