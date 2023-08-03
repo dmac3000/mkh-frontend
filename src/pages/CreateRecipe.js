@@ -26,31 +26,42 @@ const CreateRecipe = () => {
       .catch(err => console.error(err));
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [errorMessage, setErrorMessage] = useState(null); 
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const userId = localStorage.getItem('userId');
   
-    try {
-      const ingredientNames = ingredients.map(ingredient => ingredient.selectedIngredient.name);
-      const requestBody = {
-        name,
-        effects,
-        description,
-        ingredients: ingredientNames,
-        imageFilename: image,
-      };
-      console.log("Request Body: ", requestBody);
-      const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody);
+  // Check if userId is present
+  if (!userId) {
+    setErrorMessage("You must be logged in to create a recipe."); // <-- Error message if user not logged in
+    return; // <-- Prevent the form from being submitted
+  }
+
+  try {
+    const ingredientNames = ingredients.map(ingredient => ingredient.selectedIngredient.name);
+    const requestBody = {
+      name,
+      effects,
+      description,
+      ingredients: ingredientNames,
+      imageFilename: image,
+      userId,
+    };
+    console.log("Request Body: ", requestBody);
+    const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody);
   
-      console.log('Recipe created successfully', data);
-      setTimeout(() => {
+    console.log('Recipe created successfully', data);
+    setTimeout(() => {
       console.log(`Navigating to /view-recipe/${data._id}`);
       navigate(`/view-recipe/${data._id}`);
     }, 1000);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
+  } catch (err) {
+    console.error(err);
+    setErrorMessage("An error occurred while creating the recipe."); // <-- Set an error message if the request fails
+  }
+};
   const handleIngredientChange = (index, value) => {
     const newIngredients = [...ingredients];
     const selected = ingredientsList.find(ingredient => ingredient.name === value);
@@ -59,12 +70,13 @@ const CreateRecipe = () => {
   };
 
   return (
-    
     <div className="flex flex-col items-center justify-start min-h-screen">
       <div className="h-10"></div>
       <div className="max-w-sm mx-auto px-5 py-4 rounded bg-black/70 text-white ">
-      <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
-      <form onSubmit={handleSubmit}>
+        <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        <form onSubmit={handleSubmit}>
+  
       <h3 className='text-white font-bold py-2'>Recipe Details</h3>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
         <input type="text" value={effects} onChange={(e) => setEffects(e.target.value)} placeholder="Effects" required />

@@ -3,11 +3,14 @@ import axios from 'axios';
 import logo from '../assets/mkh-logo.svg';
 import '../App.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../AuthContext';
 
 export default function Navbar() {
   const [search, setSearch] = useState('');
   const [results, setResults] = useState([]); // Create a state variable for the search results
-  const navigate = useNavigate(); // Add this line
+  const navigate = useNavigate();
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const handleSearchChange = async (event) => {
     const newSearchTerm = event.target.value;
@@ -24,6 +27,13 @@ export default function Navbar() {
       }
     }
   };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+  };
+
+
   return (
     // Logo
     <div className="navbar bg-white justify-between md:items-start">
@@ -51,12 +61,11 @@ export default function Navbar() {
         {/* Div for top row navbar links */}
         <div className="mt-4 md:mt-6">
           <div className="flex justify-end pb-10">
-            <Link
-              to="/login"
-              className="text-sm text-black italic font-bold font-sans mr-4 pr-8"
-            >
-              Login
-            </Link>
+            {
+              isLoggedIn 
+              ? <button className="text-sm text-black italic font-bold font-sans mr-4 pr-8" onClick={logout}>Logout</button>
+              : <Link to="/login" className="text-sm text-black italic font-bold font-sans mr-4 pr-8">Login</Link>
+            }
             <Link
               to="/signup"
               className="text-sm text-black italic font-bold font-sans mr-2"
@@ -74,7 +83,7 @@ export default function Navbar() {
               Create Recipe
             </Link>
             <Link
-              to="/myrecipes"
+              to="/my-recipes"
               className="text-2xl text-black italic font-bold font-sans mr-2"
             >
               My Recipes
