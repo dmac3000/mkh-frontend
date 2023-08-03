@@ -2,16 +2,30 @@ import React, { useEffect } from 'react';
 import CircleType from 'circletype';
 import { ingredientImages } from '../ingredientImages';
 import { recipeImages } from '../recipeImages'; 
+import { Link } from 'react-router-dom';
 
 const RecipeCard = ({ recipe }) => {
-  useEffect(() => {
-    const circleType = new CircleType(document.getElementById('recipe-name'));
-    circleType.radius(150);
-  }, []);
+  // useEffect(() => {
+  //   const recipeNameElement = document.getElementById('recipe-name');
+  //   if (recipeNameElement) {
+  //     const circleType = new CircleType(recipeNameElement);
+  //     circleType.radius(200);
+  //   }
+  // }, [recipe]);
+
+  // If recipe or recipe.userId is undefined, return a placeholder layout
+  if (!recipe || !recipe.userId) {
+    return (
+      <div className="w-96 h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative">
+        <p>No recipe to display</p>
+      </div>
+    );
+  }
 
   console.log('Recipe image:', recipe.imageFilename);
 
   return (
+    <Link to={`/view-recipe/${recipe._id}`}>
     <div className="w-96 h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative">
       {/* This is your background image. Change width of recipe card later */}
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
@@ -44,7 +58,11 @@ const RecipeCard = ({ recipe }) => {
           ))}
         </div>
       </div>
+      <div className="p-2 absolute text-xs bottom-1 bg-opacity-50 w-full text-center">
+      <p className="text-xs">Submitted by: {recipe.userId.username}</p>
+      </div>
     </div>
+    </Link>
   );
 };
 

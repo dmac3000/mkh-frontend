@@ -11,7 +11,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const { data } = await axios.post('http://localhost:3333/api/signup', {
         username,
@@ -20,7 +20,7 @@ const Signup = () => {
       });
       console.log (data);
       setMessage('Signed up successfully');
-      setTimeout(() => navigate('/'), 2000); // Navigate to '/' after 2 seconds
+      setTimeout(() => navigate('/login'), 2000); // Navigate to '/login' after 2 seconds
     } catch (err) {
       if (err.response) {
         setMessage(err.response.data.message);
@@ -35,7 +35,7 @@ const Signup = () => {
       <div className="h-10"></div>
       <div className="w-full max-w-sm px-5 py-4 mx-auto bg-black/70 rounded-2xl shadow-md">
         <h1 className="mb-6 text-4xl text-white">Sign Up</h1>
-        {message && <p className="mb-4 text-red-500">{message}</p>}
+        {message && <p className="mb-4 text-totk-green-light">{message}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">

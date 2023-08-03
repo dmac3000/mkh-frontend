@@ -17,7 +17,11 @@ const CreateRecipe = () => {
     effects: '',
     description: '',
     imageFilename: '',
-    ingredients: []
+    ingredients: [],
+    userId: {
+      _id: localStorage.getItem('userId'),
+      username: localStorage.getItem('username') // Assuming 'username' is the key where the username is stored
+    }
   });
 
   const [ingredients, setIngredients] = useState([
