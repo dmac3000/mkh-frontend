@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom'; // Import useParams
+import { useParams, useNavigate } from 'react-router-dom';
 import RecipeCard from '../components/RecipeCard';
+
 
 const ViewRecipe = () => {
   const [recipe, setRecipe] = useState(null);
   const { id } = useParams(); // Get the id from the URL
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:3333/api/recipes/${id}`) // Use the id in the request
@@ -13,6 +15,25 @@ const ViewRecipe = () => {
       .catch(err => console.error(err));
   }, [id]); // Pass id as a dependency
 
+  const handleDelete = async () => {
+    const token = localStorage.getItem('token'); 
+    try {
+      const response = await axios.delete(`http://localhost:3333/api/recipes/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log('Delete response:', response); 
+
+      localStorage.setItem('message', 'Recipe deleted successfully');
+      console.log('message set in localStorage:', localStorage.getItem('message')); // new line
+      navigate('/my-recipes', { state: { message: 'Recipe deleted successfully.' } });
+
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
   // Don't render anything if the recipe is not loaded yet
   if (!recipe) {
     return null;
@@ -33,9 +54,11 @@ const ViewRecipe = () => {
               </button>
               <button 
                 className="w-24 px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-red-800 focus:outline-none focus:shadow-outline" 
+                onClick={handleDelete}
               >
                 Delete
               </button>
+
             </div>
           </div>
         </div>

@@ -3,15 +3,30 @@ import axios from 'axios';
 import CarouselContainer from '../components/CarouselContainer';
 import { AuthContext } from '../AuthContext';  // Import AuthContext
 import { useNavigate } from 'react-router-dom';  // Import useNavigate
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 export default function MyRecipes() {
   const [recipes, setRecipes] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  // const [message, setMessage] = useState('');
 
   const { isLoggedIn } = useContext(AuthContext);  // Get isLoggedIn from AuthContext
   const navigate = useNavigate();  // Get navigate function from useNavigate hook
 
+  const location = useLocation();
+  const message = location.state?.message;
+  
+  useEffect(() => {
+    const message = localStorage.getItem('message');
+    if (message) {
+      console.log('Message from local storage:', message);
+      localStorage.removeItem('message');
+    }
+  }, []);
+  
   useEffect(() => {
     if (!isLoggedIn) {  // If user is not logged in
       navigate('/login', { state: { message: 'You must be logged in to view your recipes' } });  // Navigate to login page
@@ -45,15 +60,30 @@ export default function MyRecipes() {
   }
 
   if (!recipes.length) {
-    return <div>No recipes found.</div>;
+    return (
+      <CarouselContainer
+        title="My Recipes"
+        text={message ? message : ""}
+        subtitle={
+          <span>
+            You have no recipes. <Link to="/create-recipe" className="text-totk-green-light">Create one?</Link>
+
+          </span>
+        }
+        items={recipes}
+      />
+    );
   }
 
   return (
-    <CarouselContainer
-    title="My Recipes"
-    text="View your previously submitted recipes here."
-    subtitle=""
-    items={recipes}
-  />
-  );
-}
+      <>
+       {/* {message && <p className="text-totk-green-light text-center" style={{ fontSize: '2em', color: 'red' }}>{message}</p>} */}
+        <CarouselContainer
+          title="My Recipes"
+          text="View your previously submitted recipes here."
+          subtitle=""
+          items={recipes}
+        />
+      </>
+    );
+  }
