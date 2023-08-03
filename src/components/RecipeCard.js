@@ -5,13 +5,13 @@ import { recipeImages } from '../recipeImages';
 import { Link } from 'react-router-dom';
 
 const RecipeCard = ({ recipe }) => {
-  // useEffect(() => {
-  //   const recipeNameElement = document.getElementById('recipe-name');
-  //   if (recipeNameElement) {
-  //     const circleType = new CircleType(recipeNameElement);
-  //     circleType.radius(200);
-  //   }
-  // }, [recipe]);
+  useEffect(() => {
+    const recipeNameElement = document.getElementById('recipe-name');
+    if (recipeNameElement) {
+      const circleType = new CircleType(recipeNameElement);
+      circleType.radius(200);
+    }
+  }, [recipe]);
 
   // If recipe or recipe.userId is undefined, return a placeholder layout
   if (!recipe || !recipe.userId) {
@@ -31,11 +31,11 @@ const RecipeCard = ({ recipe }) => {
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
 
       {/* This is the selected recipe image */}
-{recipe.imageFilename && recipeImages[recipe.imageFilename] ? (
-  <img className="h-24 w-full object-contain absolute top-16 left-0" src={recipeImages[recipe.imageFilename]} alt="Selected Recipe" />
-) : recipe.imageFilename ? (
-  <p className="absolute top-20 left-0 bg-white">Image not found: {recipe.imageFilename}</p>
-) : null}
+      {recipe.imageFilename && recipeImages[recipe.imageFilename] ? (
+        <img className="h-24 w-full object-contain absolute top-16 left-0" src={recipeImages[recipe.imageFilename]} alt="Selected Recipe" />
+      ) : recipe.imageFilename ? (
+        <p className="absolute top-20 left-0 bg-white">Image not found: {recipe.imageFilename}</p>
+      ) : null}
 
       <div className="p-4 absolute top-2 left-0 bg-opacity-50 w-full">
         <h3 id="recipe-name" className="text-xl font-bold text-center mb-16">{recipe.name}</h3>

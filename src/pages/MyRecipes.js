@@ -80,7 +80,7 @@ export default function MyRecipes() {
        {/* {message && <p className="text-totk-green-light text-center" style={{ fontSize: '2em', color: 'red' }}>{message}</p>} */}
         <CarouselContainer
           title="My Recipes"
-          text="View your previously submitted recipes here."
+          text={message ? message : ""}
           subtitle=""
           items={recipes}
         />

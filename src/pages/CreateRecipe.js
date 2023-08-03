@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { ingredientImages } from '../ingredientImages';
+// import { ingredientImages } from '../ingredientImages';
 import { recipeImages } from '../recipeImages';
 import RecipeCard from '../components/RecipeCard';
 
@@ -25,10 +25,6 @@ const CreateRecipe = () => {
   });
 
   const [ingredients, setIngredients] = useState([
-    { id: '', selectedIngredient: null },
-    { id: '', selectedIngredient: null },
-    { id: '', selectedIngredient: null },
-    { id: '', selectedIngredient: null },
     { id: '', selectedIngredient: null },
   ]);
 
@@ -117,23 +113,48 @@ const CreateRecipe = () => {
               </select>
 
               <h3 className='text-white font-bold py-2'>Select Ingredients</h3>
-              {ingredients.map((ingredient, index) => (
-                <div key={index}>
-                  <select id={`ingredient${index + 1}`} value={ingredient.id} onChange={(e) => handleIngredientChange(index, e.target.value)} required>
-                    <option value="">Select Ingredient #{index + 1}</option>
-                    {ingredientsList.map((ingredient) => (
-                      <option value={ingredient.name} key={ingredient._id}>
-                        {ingredient.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              ))}
-              <button 
-              className="px-4 py-2 mt-10 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
-              type="submit"
-              >Create Recipe</button>
-            </form>
+  {ingredients.map((ingredient, index) => (
+    <div key={index}>
+      <select id={`ingredient${index + 1}`} value={ingredient.id} onChange={(e) => handleIngredientChange(index, e.target.value)} required>
+        <option value="">Select Ingredient #{index + 1}</option>
+        {ingredientsList.map((ingredient) => (
+          <option value={ingredient.name} key={ingredient._id}>
+            {ingredient.name}
+          </option>
+        ))}
+      </select>
+
+      <button onClick={() => {
+        const newIngredients = [...ingredients];
+        newIngredients.splice(index, 1);
+        setIngredients(newIngredients);
+
+        // Update the previewRecipe state
+        const newPreviewIngredients = newIngredients.filter(ingredient => ingredient.selectedIngredient !== null).map(ingredient => ingredient.selectedIngredient);
+        setPreviewRecipe(prev => ({ ...prev, ingredients: newPreviewIngredients }));
+      }}>Remove</button>
+    </div>
+  ))}
+
+<div className="mt-2">
+    <button onClick={() => {
+      if (ingredients.length < 5) {
+        setIngredients(prev => [...prev, { id: '', selectedIngredient: null }])
+      } else {
+        alert("You can't add more than 5 ingredients");
+      }
+    }}>
+      + Add Ingredient
+    </button>
+  </div>
+
+  <div className="mt-4">
+    <button 
+      className="px-4 py-2 mt-10 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
+      type="submit"
+    >Create Recipe</button>
+  </div>
+</form>
           </div>
           <div className="recipe-preview pt-20 max-w-sm mx-auto px-5 py-4 rounded text-white">
             <RecipeCard recipe={previewRecipe} />
