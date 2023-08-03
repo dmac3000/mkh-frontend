@@ -23,19 +23,18 @@ p {
   color:#564B0F;
 }
 
-.carousel-box {
+/* .carousel-box {
   background-color: black;
   width: 100%;
-  height: 400px;  /* You can adjust this value based on your needs */
-  margin: 0 auto;
-}
+  /* height: 2%;  
+  margin: 0 auto;} */
 
 .background-image {
   background-image: url('assets/seamless-bg.png');
   background-color: black;
   background-repeat: repeat;
-  height: 78vh;
-  background-size: auto;
+  min-height: 80vh;
+  /* background-size: auto; */
 }
 
 .navbar-fretwork {
@@ -61,7 +60,7 @@ p {
 /* } */
 
 .navbar {
-  height: 22vmin;
+  height: 18vmin;
   /* background-image: url('./assets/navbar-fretwork.png');
   background-repeat: repeat-x;
   background-position: bottom; */
@@ -73,7 +72,7 @@ p {
 }
 
 .App-logo {
-  height: 20vmin;
+  height: 18vmin;
   pointer-events: none;
 }
 
@@ -102,6 +101,15 @@ p {
   background-image: url('assets/seamless-bg.png')
 }
 
+/* .carousel .control-dots {
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */
 
 /* @keyframes App-logo-spin {
   from {

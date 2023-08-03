@@ -12,7 +12,7 @@ const RecipeCard = ({ recipe }) => {
   console.log('Recipe image:', recipe.imageFilename);
 
   return (
-    <div className="w-96 rounded-lg shadow-lg overflow-hidden mx-auto relative">
+    <div className="w-96 h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative">
       {/* This is your background image. Change width of recipe card later */}
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
 
