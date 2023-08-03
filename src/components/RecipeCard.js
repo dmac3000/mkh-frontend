@@ -17,19 +17,19 @@ const RecipeCard = ({ recipe }) => {
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
 
       {/* This is the selected recipe image */}
-      {recipe.imageFilename && recipeImages[recipe.imageFilename] ? (
-        <img className="h-24 w-full object-contain absolute top-16 left-0" src={recipeImages[recipe.imageFilename]} alt="Selected Recipe" />
-      ) : (
-        <p className="absolute top-20 left-0 bg-white">Image not found: {recipe.imageFilename}</p>
-      )}
+{recipe.imageFilename && recipeImages[recipe.imageFilename] ? (
+  <img className="h-24 w-full object-contain absolute top-16 left-0" src={recipeImages[recipe.imageFilename]} alt="Selected Recipe" />
+) : recipe.imageFilename ? (
+  <p className="absolute top-20 left-0 bg-white">Image not found: {recipe.imageFilename}</p>
+) : null}
 
       <div className="p-4 absolute top-2 left-0 bg-opacity-50 w-full">
         <h3 id="recipe-name" className="text-xl font-bold text-center mb-16">{recipe.name}</h3>
       </div>
 
       {/* Recipe description */}
-      <div className="p-4 absolute top-44 bg-opacity-50 w-full text-center">
-        <p className="text-sm">{recipe.description}</p>
+      <div className="p-2 absolute top-44 bg-opacity-50 w-full text-center">
+        <p className="text-xs w-full">{recipe.description}</p>
       </div>
 
       <div className="p-4 absolute top-40 left-0 bg-opacity-50 w-full">

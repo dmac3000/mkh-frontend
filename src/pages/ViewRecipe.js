@@ -19,11 +19,30 @@ const ViewRecipe = () => {
   }
 
   return (
-    <div className="container mx-auto py-4">
-      <h1 className="text-3xl mb-4 text-white">View Recipe</h1>
-      <RecipeCard recipe={recipe} />
+    <div className="mx-auto my-auto text-white w-1/4 pt-10">
+      <div className="bg-black/70 rounded-2xl relative pb-4">
+        <div className="flex flex-col items-center justify-start h-3/4 ">
+          <div className="pt-6 mx-auto px-5 py-4 rounded text-white">
+            <h1 className="text-4xl font-custom pb-4">View Recipe</h1>
+            <RecipeCard recipe={recipe} />
+            <div className="mt-4 flex gap-4 justify-center">
+              <button 
+                className="w-24 px-4 py-2 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
+              >
+                Edit
+              </button>
+              <button 
+                className="w-24 px-4 py-2 font-bold text-white bg-red-600 rounded hover:bg-red-800 focus:outline-none focus:shadow-outline" 
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
+  
 };
 
 export default ViewRecipe;

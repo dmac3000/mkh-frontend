@@ -14,5 +14,4 @@ const CarouselContainer = ({ title, text, items, subtitle }) => (
     </div>
   );
   
-
 export default CarouselContainer;
