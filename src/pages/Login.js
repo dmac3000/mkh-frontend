@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';  // Include useContext
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';  // Import AuthContext
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -9,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
   
   const { setIsLoggedIn } = useContext(AuthContext);  // Add this line
 
@@ -47,7 +49,8 @@ const Login = () => {
       <div className="h-10"></div>
       <div className="w-full max-w-sm px-5 py-4 mx-auto bg-black/70 rounded-2xl shadow-md">
         <h1 className="mb-6 text-4xl text-white">Login</h1>
-        {error && <p className="mb-4 text-red-500">{error}</p>}
+        {error && <p className="mb-4 text-red-400">{error}</p>}
+        {location.state?.message && <p className="mb-4 text-red-400">{location.state.message}</p>}
         {message && <p className="mb-4 text-totk-green-light">{message}</p>} {/* Display success message when present */}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -78,7 +81,7 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-between">
             <button 
-              className="px-4 py-2 font-bold text-white bg-totk-green rounded hover:bg-totk-green-light focus:outline-none focus:shadow-outline" 
+              className="px-4 py-2 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
               type="submit"
             >
               Login
