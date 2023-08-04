@@ -12,15 +12,17 @@ const CreateRecipe = () => {
   const [image, setImage] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
   const navigate = useNavigate();
+  const [hearts, setHearts] = useState(0);
   const [previewRecipe, setPreviewRecipe] = useState({
     name: '',
     effects: '',
     description: '',
     imageFilename: '',
     ingredients: [],
+    hearts: 0, // set initial hearts value
     userId: {
       _id: localStorage.getItem('userId'),
-      username: localStorage.getItem('username') // Assuming 'username' is the key where the username is stored
+      username: localStorage.getItem('username')
     }
   });
 
@@ -55,6 +57,7 @@ const CreateRecipe = () => {
         description,
         ingredients: ingredientNames,
         imageFilename: image,
+        hearts,
         userId,
       };
       console.log("Request Body: ", requestBody);
@@ -84,45 +87,101 @@ const CreateRecipe = () => {
 
   return (
     <div className="mx-auto my-auto text-white w-1/2 pt-10">
-      <div className="bg-black/70 px-2 rounded-2xl relative pb-12">
+      <div className="bg-black/70 rounded-2xl relative pb-6">
         <div className="flex flex-row items-start justify-start h-3/4 ">
-          <div className="flex flex-col items-center justify-start max-w-sm mx-auto px-5 py-4 rounded text-white">
+          <div className="flex flex-col items-center justify-start max-w-sm mx-auto pt-6 rounded text-white">
+           
             <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+           
             <form onSubmit={handleSubmit}>
               <h3 className='text-white font-bold py-2'>Recipe Details</h3>
+           
+              {/* Recipe Name */}
               <input type="text" value={name} onChange={(e) => {
                 setName(e.target.value);
                 setPreviewRecipe(prev => ({ ...prev, name: e.target.value }));
-              }} placeholder="Name" required />
+              }} placeholder="Name (max 25)" required 
+                maxLength={25}/>
 
-              <input type="text" value={description} onChange={(e) => {
-                setDescription(e.target.value);
-                setPreviewRecipe(prev => ({ ...prev, description: e.target.value }));
-              }} placeholder="Description" required /> 
 
+              {/* Recipe Description */}
+              <input 
+                type="text" 
+                value={description} 
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                  setPreviewRecipe(prev => ({ ...prev, description: e.target.value }));
+                }} 
+                placeholder="Description (max 75)" 
+                required 
+                maxLength={70} // limit to 75 characters
+              />
+              
+              {/* Recipe Image Selector */}
               <h3 className='text-white font-bold py-2'>Select Recipe Image</h3>
+                <select onChange={(e) => {
+                  setImage(e.target.value);
+                  setPreviewRecipe(prev => ({ ...prev, imageFilename: e.target.value }));
+                }} required>
+                  <option value="">Select an image</option>
+                  {Object.keys(recipeImages).map((recipeName) => (
+                    <option value={recipeName} key={recipeName}>{recipeName}</option>
+                  ))}
+                </select>
+
+              {/* Heart Selector */}
+              <h3 className='text-white font-bold py-2'>Hearts</h3>
               <select onChange={(e) => {
-                setImage(e.target.value);
-                setPreviewRecipe(prev => ({ ...prev, imageFilename: e.target.value }));
+                  setHearts(e.target.value === 'Full' ? 20 : Number(e.target.value));
+                  setPreviewRecipe(prev => ({ ...prev, hearts: e.target.value === 'Full' ? 20 : Number(e.target.value) }));
               }} required>
-                <option value="">Select an image</option>
-                {Object.keys(recipeImages).map((recipeName) => (
-                  <option value={recipeName} key={recipeName}>{recipeName}</option>
-                ))}
+                  {[...Array(12).keys()].map(i => {
+                      return <option value={i} key={i}>{i}</option>;
+                  })}
+                  <option value='Full'>Full</option>
               </select>
 
+              {/* Effects Selector */}
+              <h3 className='text-white font-bold py-2'>Effects</h3>
+              <select onChange={(e) => {
+                  setEffects(e.target.value);
+                  setPreviewRecipe(prev => ({ ...prev, effects: e.target.value }));
+              }} required>
+                  <option value="">Select an effect</option>
+                  <option value="No special effect">No special effect</option>
+                  <option value="Gloom Resist">Gloom Resist</option>
+                  <option value="Shock Resist">Shock Resist</option>
+                  <option value="Adds Stamina">Adds Stamina</option>
+                  <option value="Restores Stamina">Restores Stamina</option>
+                  <option value="Fire Resist">Fire Resist</option>
+                  <option value="Heat Resist">Heat Resist</option>
+                  <option value="Movement Speed Up">Move Speed Up</option>
+                  <option value="Attack Up">Attack Up</option>
+                  <option value="Stealth Up">Stealth Up</option>
+                  <option value="Cold Resist">Cold Resist</option>
+                  <option value="Grip Up">Grip Up</option>
+                  <option value="Heals Gloom Damage">Heals Gloom Damage</option>
+                  <option value="Defence Up">Defence Up</option>
+                  <option value="Glow">Glow</option>
+                  <option value="Hot Weather Atk Up">Hot Weather Atk Up</option>
+                  <option value="Cold Weather Atk Up">Cold Weather Attack Up</option>
+                  <option value="Stormy Weather Atk Up">Stormy Weather Attack Up</option>
+                  <option value="Swim Speed Up">Swim Speed Up</option>
+              </select>
+
+
               <h3 className='text-white font-bold py-2'>Select Ingredients</h3>
-  {ingredients.map((ingredient, index) => (
-    <div key={index}>
-      <select id={`ingredient${index + 1}`} value={ingredient.id} onChange={(e) => handleIngredientChange(index, e.target.value)} required>
-        <option value="">Select Ingredient #{index + 1}</option>
-        {ingredientsList.map((ingredient) => (
-          <option value={ingredient.name} key={ingredient._id}>
-            {ingredient.name}
-          </option>
-        ))}
-      </select>
+                {ingredients.map((ingredient, index) => (
+                  <div key={index}>
+                    <select id={`ingredient${index + 1}`} value={ingredient.id} onChange={(e) => handleIngredientChange(index, e.target.value)} required>
+                      <option value="">Select Ingredient #{index + 1}</option>
+                      {ingredientsList.map((ingredient) => (
+                        <option value={ingredient.name} key={ingredient._id}>
+                          {ingredient.name}
+                        </option>
+                      ))}
+                    </select>
 
       <button onClick={() => {
         const newIngredients = [...ingredients];
@@ -136,7 +195,7 @@ const CreateRecipe = () => {
     </div>
   ))}
 
-<div className="mt-2">
+<div className="mt-2 font-bold">
     <button onClick={() => {
       if (ingredients.length < 5) {
         setIngredients(prev => [...prev, { id: '', selectedIngredient: null }])

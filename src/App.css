@@ -14,15 +14,16 @@ h1, h2  {
 
 h3, h4, h5, h6 {
   font-family: 'Open Sans', serif;
-  color:#564B0F;
 }
 
 p {
   font-family: 'Open Sans', serif;
-  font-style: italic;
-  color:#564B0F;
-  font-size: medium;
+  /* font-style: italic; */
+  /* font-size: medium; */
 }
+
+
+
 
 /* .carousel-box {
   background-color: black;
@@ -95,6 +96,22 @@ p {
 
 .App-link {
   color: #61dafb;
+}
+
+.ingredient-image {
+  max-width: 50px;
+  height: 45px;
+}
+
+.heart-image {
+  max-width: 19px;  /* or any size you want */
+  height: 14px;
+}
+
+.recipe-description {
+  word-wrap: normal;
+  width: 280px; 
+  text-align: center;
 }
 
 

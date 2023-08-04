@@ -78,7 +78,7 @@ const Signup = () => {
           </div>
           <div className="flex items-center justify-between">
             <button 
-              className="px-4 py-2 font-bold text-white bg-totk-green rounded hover:bg-totk-green-light focus:outline-none focus:shadow-outline" 
+              className="px-4 py-2 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
               type="submit"
             >
               Sign Up

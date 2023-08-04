@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import CircleType from 'circletype';
+// import CircleType from 'circletype';
 import { ingredientImages } from '../ingredientImages';
 import { recipeImages } from '../recipeImages'; 
 import { Link } from 'react-router-dom';
 
 const RecipeCard = ({ recipe }) => {
-  useEffect(() => {
-    const recipeNameElement = document.getElementById('recipe-name');
-    if (recipeNameElement) {
-      const circleType = new CircleType(recipeNameElement);
-      circleType.radius(200);
-    }
-  }, [recipe]);
+  // useEffect(() => {
+  //   const recipeNameElement = document.getElementById('recipe-name');
+  //   if (recipeNameElement) {
+  //     const circleType = new CircleType(recipeNameElement);
+  //     circleType.radius(200);
+  //   }
+  // }, [recipe]);
 
   // If recipe or recipe.userId is undefined, return a placeholder layout
   if (!recipe || !recipe.userId) {
@@ -26,45 +26,60 @@ const RecipeCard = ({ recipe }) => {
 
   return (
     <Link to={`/view-recipe/${recipe._id}`}>
-    <div className="w-96 h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative">
-      {/* This is your background image. Change width of recipe card later */}
+    
+    {/* Container div */}
+    <div className="h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative text-recipe-card-brown">
+
+      {/* Recipe Card Background */}
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
 
-      {/* This is the selected recipe image */}
+      {/* Selected Recipe Image */}
       {recipe.imageFilename && recipeImages[recipe.imageFilename] ? (
         <img className="h-24 w-full object-contain absolute top-16 left-0" src={recipeImages[recipe.imageFilename]} alt="Selected Recipe" />
       ) : recipe.imageFilename ? (
         <p className="absolute top-20 left-0 bg-white">Image not found: {recipe.imageFilename}</p>
       ) : null}
 
+      {/* Recipe Name */}
       <div className="p-4 absolute top-2 left-0 bg-opacity-50 w-full">
-        <h3 id="recipe-name" className="text-xl font-bold text-center mb-16">{recipe.name}</h3>
+        <h3 id="recipe-name" className=" text-center text-xl font-bold mb-16">{recipe.name}</h3>
       </div>
 
-      {/* Recipe description */}
-      <div className="p-2 absolute top-44 bg-opacity-50 w-full text-center">
-        <p className="text-xs w-full">{recipe.description}</p>
+      {/* Recipe Description */}
+      <div className="absolute pt-1 top-44 italic text-center bg-opacity-50">
+        <p className="recipe-description px-4 text-center text-sm">{recipe.description}</p>
       </div>
 
-      <div className="p-4 absolute top-40 left-0 bg-opacity-50 w-full">
-        <div className="flex justify-center space-x-2 m-12">
-          {recipe.ingredients.map((ingredient, index) => (
-            <img 
-              key={ingredient._id} 
-              className={`h-12 w-12 ${index % 2 === 0 ? 'mt-12' : 'mt-6'}`} 
-              src={ingredientImages[ingredient.name]} 
-              alt={ingredient.name} 
-            />
-          ))}
+      {/* Recipe Ingredients */}
+      <div className="p-1 absolute top-56 left-0 bg-opacity-50 w-full">
+        <div className="flex justify-center space-x-1">
+        {recipe.ingredients.map((ingredient, index) => (
+          <img 
+            key={ingredient._id} 
+            className={`ingredient-image ${index % 2 === 0 ? 'mt-12' : 'mt-6'}`} 
+            src={ingredientImages[ingredient.name]} 
+            alt={ingredient.name} 
+          />
+        ))}
         </div>
       </div>
-      <div className="p-2 absolute text-xs bottom-1 bg-opacity-50 w-full text-center">
-      <p className="text-xs">Submitted by: {recipe.userId.username}</p>
-      </div>
+
+      {/* Hearts and effects display */}
+          <div className="pl-3.5 mb-2.5 absolute left-20 text-sm text-white bottom-6 bg-opacity-50 flex items-center">
+            {/* <div className="absolute text-sm left-24 bottom-[-4] pt-2 flex justify-center items-center"> */}
+              <img src="/heart.png" alt="heart" className="heart-image h-3 w-4 pr-1"/>
+              <p className='text-sm pr-12'>{recipe.hearts === 20 ? 'Full' : recipe.hearts}</p>
+              <p className='text-xs'>{recipe.effects}</p>
+            </div>
+        
+
+        {/* User ID display */}
+        <div className="p-2 absolute text-xs italic bottom-1 bg-opacity-50 w-full text-center">
+          <p className="text-xs">Submitted by: {recipe.userId.username}</p>
+        </div>
     </div>
     </Link>
   );
 };
 
 export default RecipeCard;
-
