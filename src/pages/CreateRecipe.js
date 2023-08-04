@@ -47,15 +47,12 @@ const CreateRecipe = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const userId = localStorage.getItem('userId');
-  
-    // Check if userId is present
+    
     if (!userId) {
       setErrorMessage("You must be logged in to create a recipe.");
       return;
     }
-
+  
     try {
       const ingredientNames = ingredients.map(ingredient => ingredient.selectedIngredient.name);
       const requestBody = {
@@ -68,8 +65,13 @@ const CreateRecipe = () => {
         userId,
       };
       console.log("Request Body: ", requestBody);
-      const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody);
-  
+      const token = localStorage.getItem('token');  // Get the token from local storage
+      const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody, {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        }
+      });
+    
       console.log('Recipe created successfully', data);
       setTimeout(() => {
         console.log(`Navigating to /view-recipe/${data._id}`);
