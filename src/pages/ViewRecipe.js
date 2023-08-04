@@ -44,11 +44,11 @@ const ViewRecipe = () => {
   }
 
   return (
-    <div className="mx-auto my-auto text-white w-1/4 pt-10">
+    <div className="mx-auto my-auto text-white w-96 pt-10">
       <div className="bg-black/70 rounded-2xl relative pb-4">
-        <div className="flex flex-col items-center justify-start h-3/4 ">
-          <div className="pt-6 mx-auto px-5 py-4 rounded text-white">
-            <h1 className="text-4xl font-custom pb-4">View Recipe</h1>
+        <div className="flex flex-col items-center justify-start">
+          <div className="pt-6 mx-auto py-4 rounded text-white">
+            <h1 className="text-4xl font-custom text-center pb-4">View Recipe</h1>
             {error && <p className="text-red-500 pb-2">{error}</p>}
             <RecipeCard recipe={recipe} />
             <div className="mt-4 flex gap-4 justify-center">

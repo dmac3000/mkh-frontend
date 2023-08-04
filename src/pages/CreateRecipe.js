@@ -95,12 +95,12 @@ const CreateRecipe = () => {
   };
 
   return (
-    <div className="mx-auto my-auto text-white w-1/2 pt-10">
+    <div className="mx-auto my-auto text-white sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/3 pt-10">
       <div className="bg-black/70 rounded-2xl relative pb-6">
-        <div className="flex flex-row items-start justify-start h-3/4 ">
-          <div className="flex flex-col items-center justify-start max-w-sm mx-auto pt-6 rounded text-white">
+        <div className="flex flex-col md:flex-row items-start m-4 justify-start h-3/4 ">
+          <div className="flex flex-col items-center justify-start sm:w-full md:max-w-sm mx-auto pt-6 rounded text-white">
            
-            <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
+            <h1 className="text-4xl font-custom pb-4">Create Recipe</h1>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
            
             <form onSubmit={handleSubmit}>
@@ -225,17 +225,18 @@ const CreateRecipe = () => {
     </button>
   </div>
 
-  <div className="mt-4">
+  <div>
     <button 
-      className="px-4 py-2 mt-10 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
+      className="px-4 py-2 mt-6 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
       type="submit"
     >Create Recipe</button>
   </div>
 </form>
           </div>
-          <div className="recipe-preview pt-20 max-w-sm mx-auto px-5 py-4 rounded text-white">
+          <div className="recipe-preview pt-10 lg:pt-28 max-w-sm mx-auto px-5 py-4 rounded text-white">
             <RecipeCard recipe={previewRecipe} />
           </div>
+
         </div>
       </div>
     </div>
