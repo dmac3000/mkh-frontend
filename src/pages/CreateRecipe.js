@@ -1,17 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import { ingredientImages } from '../ingredientImages';
+import { AuthContext } from '../AuthContext';
 import { recipeImages } from '../recipeImages';
 import RecipeCard from '../components/RecipeCard';
 
 const CreateRecipe = () => {
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const userId = localStorage.getItem('userId'); 
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login', { state: { message: 'You must be logged in to create a recipe' } });
+    }
+  }, [isLoggedIn, navigate]);
+
   const [name, setName] = useState('');
   const [effects, setEffects] = useState('');
   const [description, setDescription] = useState(''); 
   const [image, setImage] = useState('');
   const [ingredientsList, setIngredientsList] = useState([]);
-  const navigate = useNavigate();
   const [hearts, setHearts] = useState(0);
   const [previewRecipe, setPreviewRecipe] = useState({
     name: '',
@@ -20,10 +30,7 @@ const CreateRecipe = () => {
     imageFilename: '',
     ingredients: [],
     hearts: 0, // set initial hearts value
-    userId: {
-      _id: localStorage.getItem('userId'),
-      username: localStorage.getItem('username')
-    }
+    userId: userId
   });
 
   const [ingredients, setIngredients] = useState([
@@ -41,7 +48,7 @@ const CreateRecipe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const userId = localStorage.getItem('userId');
+    // const userId = localStorage.getItem('userId');
   
     // Check if userId is present
     if (!userId) {
@@ -80,9 +87,9 @@ const CreateRecipe = () => {
     newIngredients[index] = { id: selected.name, selectedIngredient: selected };
     setIngredients(newIngredients);
 
-    // Update the previewRecipe state
+    // Recipe Preview
     const newPreviewIngredients = newIngredients.filter(ingredient => ingredient.selectedIngredient !== null).map(ingredient => ingredient.selectedIngredient);
-    setPreviewRecipe(prev => ({ ...prev, ingredients: newPreviewIngredients }));
+    setPreviewRecipe(prev => ({ ...prev, ingredients: newPreviewIngredients, userId: userId }));
   };
 
   return (
