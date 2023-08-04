@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 // import CircleType from 'circletype';
 import { ingredientImages } from '../ingredientImages';
 import { recipeImages } from '../recipeImages'; 
@@ -28,7 +28,7 @@ const RecipeCard = ({ recipe }) => {
     <Link to={`/view-recipe/${recipe._id}`}>
     
     {/* Container div */}
-    <div className="h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative text-recipe-card-brown">
+    <div className="h-4/5 w-72 rounded-lg shadow-lg overflow-hidden mx-auto relative text-recipe-card-brown">
 
       {/* Recipe Card Background */}
       <img className="h-96 w-full object-contain" src="/RecipeCard.png" alt="Recipe Card Background" />
@@ -65,12 +65,12 @@ const RecipeCard = ({ recipe }) => {
       </div>
 
       {/* Hearts and effects display */}
-          <div className="pl-3.5 mb-2.5 absolute left-20 text-sm text-white bottom-6 bg-opacity-50 flex items-center">
+          <div className="pl-3.5 mb-3 absolute left-10 text-sm text-white bottom-6 bg-opacity-50 flex items-center">
             {/* <div className="absolute text-sm left-24 bottom-[-4] pt-2 flex justify-center items-center"> */}
               <img src="/heart.png" alt="heart" className="heart-image h-3 w-4 pr-1"/>
               <p className='text-sm pr-12'>{recipe.hearts === 20 ? 'Full' : recipe.hearts}</p>
               <p className='text-xs'>{recipe.effects}</p>
-            </div>
+          </div>
         
 
         {/* User ID display */}
