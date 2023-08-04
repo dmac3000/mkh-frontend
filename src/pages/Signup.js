@@ -38,7 +38,7 @@ const Signup = () => {
         {message && <p className="mb-4 text-totk-green-light">{message}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="username">
+            <label className="block mb-2 text-sm font-bold text-white" htmlFor="username">
               Username
             </label>
             <input 
@@ -51,11 +51,11 @@ const Signup = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
+            <label className="block mb-2 text-sm font-bold text-white" htmlFor="email">
               Email
             </label>
             <input 
-              className="w-full px-3 py-2 leading-tight text-black border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
+              className="w-full px-3 py-2 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
               id="email" 
               type="email" 
               placeholder="Email"
@@ -64,11 +64,11 @@ const Signup = () => {
             />
           </div>
           <div className="mb-6">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
+            <label className="block mb-2 text-sm font-bold text-white" htmlFor="password">
               Password
             </label>
             <input 
-              className="w-full px-3 py-2 mb-3 leading-tight text-black border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
+              className="w-full px-3 py-2 mb-3 leading-tight text-white border rounded shadow appearance-none focus:outline-none focus:shadow-outline" 
               id="password" 
               type="password" 
               placeholder="*********"

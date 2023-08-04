@@ -13,7 +13,6 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState('');
-  const [isOpen, setIsOpen] = useState(false);
   
   const handleSearchChange = async (event) => {
     const newSearchTerm = event.target.value;
@@ -31,23 +30,26 @@ export default function Navbar() {
     }
   };
 
-  const logout = () => {
+  const logout = (event) => {
+    event.stopPropagation(); // Added this line to stop logout closing dropdown menu
     localStorage.removeItem('token');
     localStorage.removeItem('username'); // Also remove the username
     setIsLoggedIn(false);
     setMessage('Logged out successfully'); // Set the message
     setTimeout(() => setMessage(''), 2000); // Clear the message after 2 seconds
     navigate('/');  // Navigate to home
-  };
+};
 
   return (
+ 
     <div className="navbar bg-white">
-      <div className="flex-1">
+      <div className="flex-1 ml-6">
         <Link to="/">
           <img src={logo} alt="mkh logo" className="App-logo" />
         </Link>
       </div>
-      <div className="flex-none gap-2">
+      <div className="flex-none gap-2 mr-4">
+      {message && <p className="text-center text-totk-green-light pr-4 font-bold text-sm">{message}</p>}
         <div className="form-control">
           <input 
             type="text" 
@@ -57,9 +59,10 @@ export default function Navbar() {
             onChange={handleSearchChange} 
           />
         </div>
+    
         <div className="dropdown dropdown-end ml-6">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
-            <div className="w-10 rounded-full">
+            <div className="w-12 h-12 rounded-full">
               <img src="/recipes.svg" alt= 'user' />
             </div>
           </label>
@@ -82,11 +85,12 @@ export default function Navbar() {
                 Please log in to view and create recipes.
               </li>
             }
+            {message && <li><p className="text-totk-green-light pr-4 font-bold text-sm">{message}</p></li>}
           </ul>
         </div>
         <div className="dropdown dropdown-end mr-4">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
-            <div className="w-10 rounded-full">
+            <div className="w-12 h-12 rounded-full">
               <img src="/user.svg" alt= 'user'/>
             </div>
           </label>
@@ -94,20 +98,22 @@ export default function Navbar() {
             {isLoggedIn 
               ? <li><button className="text-base text-black italic font-bold font-sans mr-4 pr-8" onClick={logout}>Logout ({localStorage.getItem('username')})</button></li>
               : <>
-                  <li><Link to="/login" className="text-xl text-black italic font-bold font-sans mr-4 pr-8">Login</Link></li>
+                  <li><Link to="/login" className="text-base text-black italic font-bold font-sans mr-4 pr-8">Login</Link></li>
                   <li>
-                    <Link to="/signup" className="text-xl text-black italic font-bold font-sans mr-2">
+                    <Link to="/signup" className="text-base text-black italic font-bold font-sans mr-2">
                       Sign Up
                     </Link>
                   </li>
                 </>
             }
+            {message && <li><p className="text-totk-green-light pr-4 font-bold text-sm">{message}</p></li>}
           </ul>
         </div>
       </div>
     </div>
   );
 }
+
 //     <div className="navbar bg-white relative">
 //       <Link to="/">
 //         <img src={logo} alt="mkh logo" className="App-logo" />

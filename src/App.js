@@ -17,8 +17,9 @@ function App() {
     <AuthProvider>
       <Router>
         <Navbar/>
-        <div className='background-image'>
         <div className='navbar-fretwork'></div>
+        <div className='background-image'>
+        
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

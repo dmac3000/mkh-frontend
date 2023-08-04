@@ -32,18 +32,16 @@ p {
   margin: 0 auto;} */
 
 .background-image {
-  background-image: url('assets/seamless-bg.png');
-  background-color: black;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/seamless-bg.png');
   background-repeat: repeat;
   min-height: 82vh;
-  /* background-size: auto; */
 }
 
 .navbar-fretwork {
   background-image: url('./assets/navbar-fretwork.png');
   background-repeat: repeat-x;
   background-position: bottom;
-  height: 3vmin;
+  height: 2vmin;
 }
 
 .ingredient-image {
@@ -62,7 +60,7 @@ p {
 /* } */
 
 .navbar {
-  height: 18vmin;
+  height: 16vmin;
   /* background-image: url('./assets/navbar-fretwork.png');
   background-repeat: repeat-x;
   background-position: bottom; */
@@ -74,7 +72,7 @@ p {
 }
 
 .App-logo {
-  height: 18vmin;
+  height: 16vmin;
   pointer-events: none;
 }
 
