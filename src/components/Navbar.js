@@ -42,58 +42,71 @@ export default function Navbar() {
 
   return (
     <div className="navbar bg-white">
-  <div className="flex-1">
-  <Link to="/">
-        <img src={logo} alt="mkh logo" className="App-logo" />
-      </Link>
-  </div>
-  <div className="flex-none gap-2">
-    <div className="form-control">
-    <input 
+      <div className="flex-1">
+        <Link to="/">
+          <img src={logo} alt="mkh logo" className="App-logo" />
+        </Link>
+      </div>
+      <div className="flex-none gap-2">
+        <div className="form-control">
+          <input 
             type="text" 
             placeholder="Search by name or effect" 
             className="input input-bordered bg-white text-black w-24 lg:w-64"
             value={search} 
             onChange={handleSearchChange} 
           />
-    </div>
-    <div className="dropdown dropdown-end ml-6">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
-        <div className="w-10 rounded-full">
-          <img src="/recipes.svg" alt= 'user' />
         </div>
-      </label>
-      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white w-52">
-      <li>
-             <Link to="/create-recipe" className="text-xl text-black italic font-bold font-sans pr-10">
-               Create Recipe
-            </Link>
-           </li>
-           <li>
-            <Link to="/my-recipes" className="text-xl text-black italic font-bold font-sans mr-2">
-             View My Recipes
-            </Link>
-          </li>
-      </ul>
-    </div>
-    <div className="dropdown dropdown-end mr-4">
-      <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
-        <div className="w-10 rounded-full">
-          <img src="/user.svg" alt= 'user'/>
+        <div className="dropdown dropdown-end ml-6">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
+            <div className="w-10 rounded-full">
+              <img src="/recipes.svg" alt= 'user' />
+            </div>
+          </label>
+          <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-white w-52 drop-shadow-2xl rounded-lg">
+            {isLoggedIn ?
+              <>
+                <li>
+                  <Link to="/create-recipe" className="text-base text-black italic font-bold font-sans pr-10">
+                    Create Recipe
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/my-recipes" className="text-base text-black italic font-bold font-sans mr-2">
+                    View My Recipes
+                  </Link>
+                </li>
+              </>
+              : 
+              <li className='text-black text-base'>
+                Please log in to view and create recipes.
+              </li>
+            }
+          </ul>
         </div>
-      </label>
-      <ul tabIndex={0} className="mt-3 z-[1] p-2 bg-white shadow menu menu-sm dropdown-content w-52">
-      <li><Link to="/login" className="text-xl text-black italic font-bold font-sans mr-4 pr-8">Login</Link></li>
-        <li>
-          <Link to="/signup" className="text-xl text-black italic font-bold font-sans mr-2">
-            Sign Up
-          </Link>
-        </li>
-      </ul>
+        <div className="dropdown dropdown-end mr-4">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
+            <div className="w-10 rounded-full">
+              <img src="/user.svg" alt= 'user'/>
+            </div>
+          </label>
+          <ul tabIndex={0} className="mt-3 z-[1] p-2 bg-white shadow menu menu-sm dropdown-content w-52 drop-shadow-2xl rounded-lg">
+            {isLoggedIn 
+              ? <li><button className="text-base text-black italic font-bold font-sans mr-4 pr-8" onClick={logout}>Logout ({localStorage.getItem('username')})</button></li>
+              : <>
+                  <li><Link to="/login" className="text-xl text-black italic font-bold font-sans mr-4 pr-8">Login</Link></li>
+                  <li>
+                    <Link to="/signup" className="text-xl text-black italic font-bold font-sans mr-2">
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+            }
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-  )
+  );
 }
 //     <div className="navbar bg-white relative">
 //       <Link to="/">
