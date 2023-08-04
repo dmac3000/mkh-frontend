@@ -9,6 +9,7 @@ import ViewRecipe from './pages/ViewRecipe';
 import ViewAllRecipes from './pages/ViewAllRecipes';
 import SearchResults from './pages/SearchResults';
 import MyRecipes from './pages/MyRecipes';
+import EditRecipe from './pages/EditRecipe'; 
 import { AuthProvider } from './AuthContext';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/view-all/" element={<ViewAllRecipes />} />
             <Route path="/my-recipes" element={<MyRecipes />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/edit-recipe/:id" element={<EditRecipe />} /> 
           </Routes>
         </div>
       </Router>

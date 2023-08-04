@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 import { recipeImages } from '../recipeImages';
 import RecipeCard from '../components/RecipeCard';
 
-const CreateRecipe = () => {
+const EditRecipe = () => {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { id } = useParams(); 
 
   const userId = localStorage.getItem('userId'); 
 
   useEffect(() => {
     if (!isLoggedIn) {
-      navigate('/login', { state: { message: 'You must be logged in to create a recipe' } });
+      navigate('/login', { state: { message: 'You must be logged in to edit a recipe' } });
     }
   }, [isLoggedIn, navigate]);
 
@@ -29,7 +30,7 @@ const CreateRecipe = () => {
     description: '',
     imageFilename: '',
     ingredients: [],
-    hearts: 0, // set initial hearts value
+    hearts: 0, 
     userId: userId
   });
 
@@ -37,19 +38,37 @@ const CreateRecipe = () => {
     { id: '', selectedIngredient: null },
   ]);
 
+  const [errorMessage, setErrorMessage] = useState(null); 
+
+  useEffect(() => {
+    axios.get(`http://localhost:3333/api/recipes/${id}`) 
+      .then(res => {
+        setName(res.data.name);
+        setEffects(res.data.effects);
+        setDescription(res.data.description);
+        setImage(res.data.imageFilename);
+        setHearts(res.data.hearts);
+        setPreviewRecipe(res.data);
+        const selectedIngredients = res.data.ingredients.map(ingredientName => {
+          const selectedIngredient = ingredientsList.find(ingredient => ingredient.name === ingredientName);
+          return { id: selectedIngredient.name, selectedIngredient };
+        });
+        setIngredients(selectedIngredients);
+      })
+      .catch(err => console.error(err));
+  }, [id]); 
+
   useEffect(() => {
     axios.get('http://localhost:3333/api/ingredients')
       .then(res => setIngredientsList(res.data))
       .catch(err => console.error(err));
   }, []);
 
-  const [errorMessage, setErrorMessage] = useState(null); 
-
-  const handleSubmit = async (e) => {
+  const handleEdit = async (e) => {
     e.preventDefault();
-    
+  
     if (!userId) {
-      setErrorMessage("You must be logged in to create a recipe.");
+      setErrorMessage("You must be logged in to edit a recipe.");
       return;
     }
   
@@ -66,20 +85,21 @@ const CreateRecipe = () => {
       };
       console.log("Request Body: ", requestBody);
       const token = localStorage.getItem('token');  // Get the token from local storage
-      const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody, {
+      const { data } = await axios.put(`http://localhost:3333/api/recipes/${id}`, requestBody, {
         headers: {
           Authorization: `Bearer ${token}`, 
         }
       });
     
-      console.log('Recipe created successfully', data);
+      console.log('Recipe edited successfully', data);
       setTimeout(() => {
         console.log(`Navigating to /view-recipe/${data._id}`);
         navigate(`/view-recipe/${data._id}`);
       }, 1000);
+      
     } catch (err) {
       console.error(err);
-      setErrorMessage("An error occurred while creating the recipe.");
+      setErrorMessage("An error occurred while editing the recipe.");
     }
   };
 
@@ -94,51 +114,56 @@ const CreateRecipe = () => {
     setPreviewRecipe(prev => ({ ...prev, ingredients: newPreviewIngredients, userId: userId }));
   };
 
+  if (!ingredientsList.length) {
+    return null;
+  }
+
   return (
     <div className="mx-auto my-auto text-white w-1/2 pt-10">
       <div className="bg-black/70 rounded-2xl relative pb-6">
         <div className="flex flex-row items-start justify-start h-3/4 ">
           <div className="flex flex-col items-center justify-start max-w-sm mx-auto pt-6 rounded text-white">
            
-            <h1 className="text-4xl font-custom pb-4">Create New Recipe</h1>
+            <h1 className="text-4xl font-custom pb-4">Edit Recipe</h1>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
            
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleEdit}>
               <h3 className='text-white font-bold py-2'>Recipe Details</h3>
            
               {/* Recipe Name */}
-              <div>
-                  <input 
-                      type="text" 
-                      value={name} 
-                      onChange={(e) => {
-                          setName(e.target.value);
-                          setPreviewRecipe(prev => ({ ...prev, name: e.target.value }));
-                      }} 
-                      placeholder="Name (max 25)" 
-                      required 
-                      maxLength={25}
-                  />
-              </div>
+                <div>
+                    <input 
+                        type="text" 
+                        value={name} 
+                        onChange={(e) => {
+                            setName(e.target.value);
+                            setPreviewRecipe(prev => ({ ...prev, name: e.target.value }));
+                        }} 
+                        placeholder="Name (max 25)" 
+                        required 
+                        maxLength={25}
+                    />
+                </div>
 
-              {/* Recipe Description */}
-              <div>
-                  <input 
-                      type="text" 
-                      value={description} 
-                      onChange={(e) => {
-                          setDescription(e.target.value);
-                          setPreviewRecipe(prev => ({ ...prev, description: e.target.value }));
-                      }} 
-                      placeholder="Description (max 75)" 
-                      required 
-                      maxLength={70} // limit to 75 characters
-                  />
-              </div>
+                {/* Recipe Description */}
+                <div>
+                    <input 
+                        type="text" 
+                        value={description} 
+                        onChange={(e) => {
+                            setDescription(e.target.value);
+                            setPreviewRecipe(prev => ({ ...prev, description: e.target.value }));
+                        }} 
+                        placeholder="Description (max 75)" 
+                        required 
+                        maxLength={70} // limit to 75 characters
+                    />
+                </div>
+
               
               {/* Recipe Image Selector */}
               <h3 className='text-white font-bold py-2'>Select Recipe Image</h3>
-                <select onChange={(e) => {
+                <select value={image} onChange={(e) => {
                   setImage(e.target.value);
                   setPreviewRecipe(prev => ({ ...prev, imageFilename: e.target.value }));
                 }} required>
@@ -150,7 +175,7 @@ const CreateRecipe = () => {
 
               {/* Heart Selector */}
               <h3 className='text-white font-bold py-2'>Hearts</h3>
-              <select onChange={(e) => {
+              <select value={hearts} onChange={(e) => {
                   setHearts(e.target.value === 'Full' ? 20 : Number(e.target.value));
                   setPreviewRecipe(prev => ({ ...prev, hearts: e.target.value === 'Full' ? 20 : Number(e.target.value) }));
               }} required>
@@ -162,7 +187,7 @@ const CreateRecipe = () => {
 
               {/* Effects Selector */}
               <h3 className='text-white font-bold py-2'>Effects</h3>
-              <select onChange={(e) => {
+              <select value={effects} onChange={(e) => {
                   setEffects(e.target.value);
                   setPreviewRecipe(prev => ({ ...prev, effects: e.target.value }));
               }} required>
@@ -229,7 +254,7 @@ const CreateRecipe = () => {
     <button 
       className="px-4 py-2 mt-10 font-bold text-white bg-totk-green-light rounded hover:bg-totk-green focus:outline-none focus:shadow-outline" 
       type="submit"
-    >Create Recipe</button>
+    >Save Changes</button>
   </div>
 </form>
           </div>
@@ -241,4 +266,5 @@ const CreateRecipe = () => {
     </div>
   );
 }
-export default CreateRecipe;
+
+export default EditRecipe;
