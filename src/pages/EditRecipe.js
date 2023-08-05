@@ -41,7 +41,7 @@ const EditRecipe = () => {
   const [errorMessage, setErrorMessage] = useState(null); 
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/recipes/${id}`) 
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`) 
       .then(res => {
         setName(res.data.name);
         setEffects(res.data.effects);
@@ -59,7 +59,7 @@ const EditRecipe = () => {
   }, [id, ingredientsList]); 
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/apiingredients`)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/ingredients`)
       .then(res => setIngredientsList(res.data))
       .catch(err => console.error(err));
   }, []);
