@@ -202,19 +202,21 @@ const CreateRecipe = () => {
                       ))}
                     </select>
 
-      <button onClick={() => {
-        const newIngredients = [...ingredients];
-        newIngredients.splice(index, 1);
-        setIngredients(newIngredients);
+      <button 
+        className='text-white'
+        onClick={() => {
+          const newIngredients = [...ingredients];
+          newIngredients.splice(index, 1);
+          setIngredients(newIngredients);
 
-        // Update the previewRecipe state
-        const newPreviewIngredients = newIngredients.filter(ingredient => ingredient.selectedIngredient !== null).map(ingredient => ingredient.selectedIngredient);
-        setPreviewRecipe(prev => ({ ...prev, ingredients: newPreviewIngredients }));
+          // Update the previewRecipe state
+          const newPreviewIngredients = newIngredients.filter(ingredient => ingredient.selectedIngredient !== null).map(ingredient => ingredient.selectedIngredient);
+          setPreviewRecipe(prev => ({ ...prev, ingredients: newPreviewIngredients }));
       }}>Remove</button>
     </div>
   ))}
 
-<div className="mt-2 font-bold">
+<div className="mt-2 font-bold text-white">
     <button onClick={() => {
       if (ingredients.length < 5) {
         setIngredients(prev => [...prev, { id: '', selectedIngredient: null }])
