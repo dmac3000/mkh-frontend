@@ -5,7 +5,7 @@ body > *, #root > * {
 
 @font-face {
   font-family: 'Hylia Serif Beta';
-  src: url('assets/HyliaSerifBeta-Regular.otf') format ('opentype');
+  src: url('./assets/HyliaSerifBeta-Regular.otf') format ('opentype');
 }
 
 h1, h2  {
