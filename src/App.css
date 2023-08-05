@@ -1,60 +1,60 @@
-body > *, #root > * {
+body > *,
+#root > * {
   margin: 0;
   padding: 0;
 }
 
 @font-face {
-  font-family: 'Hylia Serif Beta';
-  src: url('./assets/HyliaSerifBeta-Regular.otf') format('opentype');
+  font-family: "Hylia Serif Beta";
+  src: url("./assets/HyliaSerifBeta-Regular.otf") format("opentype");
 }
 
-h1, h2  {
-  font-family: 'Hylia Serif Beta', serif;
+h1,
+h2 {
+  font-family: "Hylia Serif Beta", serif;
 }
 
-h3, h4, h5, h6 {
-  font-family: 'Open Sans', serif;
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Open Sans", serif;
 }
 
 p {
-  font-family: 'Open Sans', serif;
-  /* font-style: italic; */
-  /* font-size: medium; */
+  font-family: "Open Sans", serif;
 }
 
 .background-image {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/seamless-bg.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/seamless-bg.png");
   background-repeat: repeat;
   min-height: 82vh;
 }
 
 .navbar-fretwork {
-  background-image: url('./assets/navbar-fretwork.png');
+  background-image: url("./assets/navbar-fretwork.png");
   background-repeat: repeat-x;
   background-position: bottom;
   height: 3vmin;
 }
 
 .ingredient-image {
-  width: 50px;  /* or any size you want */
+  width: 50px;
   height: auto;
 }
 
 .recipe-image {
-  width: 70px;  /* or any size you want */
+  width: 70px;
   height: auto;
 }
 
 .navbar {
   height: 16vmin;
-  /* background-image: url('./assets/navbar-fretwork.png'); */
-  /* background-repeat: repeat-x;
-  background-position: bottom;  */
 }
 
 .App {
   text-align: center;
-
 }
 
 .App-logo {
@@ -82,12 +82,12 @@ p {
 }
 
 .heart-image {
-  max-width: 19px; 
+  max-width: 19px;
   height: 14px;
 }
 
 .recipe-description {
   word-wrap: normal;
-  width: 280px; 
+  width: 280px;
   text-align: center;
 }

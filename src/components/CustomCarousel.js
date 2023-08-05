@@ -1,15 +1,15 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import RecipeCard from './RecipeCard'; // Make sure to import RecipeCard and your arrow images
-import leftArrowImage from '../assets/carouselarrowleft.png';
-import rightArrowImage from '../assets/carouselarrowright.png';
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import RecipeCard from "./RecipeCard";
+import leftArrowImage from "../assets/carouselarrowleft.png";
+import rightArrowImage from "../assets/carouselarrowright.png";
 
 const CustomCarousel = ({ items }) => {
   return (
     <Carousel
       showStatus={false}
       showIndicators={false}
-      className=''
+      className=""
       infiniteLoop={true}
       showThumbs={false}
       renderArrowPrev={(onClickHandler, hasPrev, label) =>
@@ -37,7 +37,7 @@ const CustomCarousel = ({ items }) => {
         )
       }
     >
-      {items.map(item => (
+      {items.map((item) => (
         <div key={item._id}>
           <RecipeCard recipe={item} />
         </div>

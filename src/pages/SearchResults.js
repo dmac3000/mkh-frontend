@@ -1,6 +1,6 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import CarouselContainer from '../components/CarouselContainer';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import CarouselContainer from "../components/CarouselContainer";
 
 export default function SearchResults() {
   const location = useLocation();
