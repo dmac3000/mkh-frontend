@@ -7,25 +7,25 @@ Trello board: [MKH - Part B](https://trello.com/invite/b/6sU3r1jG/ATTI85a704cd42
 
 ## Purpose
 
-The purpose of "My Kitchen Hyrules" is to aid players of the game “Zelda: Tears of the Kingdom” with respect to the cooking aspect of the game. 
+The purpose of "My Kitchen Hyrules" is to aid players of the game “Zelda: Tears of the Kingdom” with respect to the cooking aspect of the game.
 
 The existing recipe browsing features in the game are quite limited and not easily searchable, so this web application is intended to serve as a digital companion by creating a space where players can share their culinary discoveries, search for new recipes, and interact with other community members.
 
 ## Functionality/Features
 
-*Need to Have:*
+_Need to Have:_
 
-* CRUD Operations for Recipes: Capability for users to Create, Read, Update, and Delete their own recipes.
-* User Registration/Login: Secure system for users to register and login, allowing them to add, edit, and delete their own recipes and preventing them from editing other people’s recipes.
-* Search Function: Users should be able to search for recipes using keywords, ingredients, or effects.
-* Recipe Categories: Basic categories for recipes based on their effects or key ingredients.
+- CRUD Operations for Recipes: Capability for users to Create, Read, Update, and Delete their own recipes.
+- User Registration/Login: Secure system for users to register and login, allowing them to add, edit, and delete their own recipes and preventing them from editing other people’s recipes.
+- Search Function: Users should be able to search for recipes using keywords, ingredients, or effects.
+- Recipe Categories: Basic categories for recipes based on their effects or key ingredients.
 
-*Nice to Have:*
+_Nice to Have:_
 
-* User Ratings and Reviews: Option for users to rate and review recipes, providing feedback to other users.
-* Favourites List: Feature allowing users to bookmark favourite recipes for easy access later.
-* Recipe Tags: Additional detailed tagging system for recipes to make search more precise.
-* Comment/Discussion System: Option for users to leave comments on recipes and interact with each other.
+- User Ratings and Reviews: Option for users to rate and review recipes, providing feedback to other users.
+- Favourites List: Feature allowing users to bookmark favourite recipes for easy access later.
+- Recipe Tags: Additional detailed tagging system for recipes to make search more precise.
+- Comment/Discussion System: Option for users to leave comments on recipes and interact with each other.
 
 ## Target Audience
 
@@ -62,9 +62,20 @@ Social Sarah:
 ![Homepage](./docs/wireframes/mkh-homepage.png)
 ![Recipes](./docs/wireframes/mkh-recipes.png)
 
+## Development Testing
+
+## Project Management Methodology
+
+I used the Kanban agile method to manage the flow of this project, via a Trello board with "To Do", "Doing", and "Done" lists of tasks, both big and small.
+
+Having "To Do", "Doing" and "Done" lists allowed me to easily categorise what had been done, what I needed to focus on, and what was to come. Being able to visualise the work this way allowed me to focus on one thing at a time, without having too much going on at once, as well as being able to celebrate how much I'd achieved while watching the "Done" list grow. This helped me "focus on flow", one of the principles of Kanban.
+
+At the end of every day, I would take a screenshot of the Trello board, which I have included below.
+
 ## Trello Screenshots
 
 ### Part A
+
 [View Part A Trello Board](https://trello.com/invite/b/yIwG6QMV/ATTI3d0c1c4cc0f403467def0545b5a9f1f13F249448/my-kitchen-hyrules-part-a)
 ![Trello Screenshot #1](./docs/trello-screenshots/mkh-trello-partA-020723.png)
 ![Trello Screenshot #2](./docs/trello-screenshots/mkh-trello-partA-090723.png)
@@ -73,4 +84,5 @@ Social Sarah:
 ![Trello Screenshot #5](./docs/trello-screenshots/mkh-trello-partA-150723.png)
 
 ### Part B
+
 [View Part B Trello Board](https://trello.com/invite/b/6sU3r1jG/ATTI85a704cd42ba3a30487794f140852e8519D337FF/my-kitchen-hyrules-part-b)
