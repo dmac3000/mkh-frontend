@@ -11,7 +11,7 @@ const ViewRecipe = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3333/api/recipes/${id}`) // Use the id in the request
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`) // Use the id in the request
       .then(res => setRecipe(res.data))
       .catch(err => console.error(err));
   }, [id]); // Pass id as a dependency

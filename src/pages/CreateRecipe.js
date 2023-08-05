@@ -66,11 +66,12 @@ const CreateRecipe = () => {
       };
       console.log("Request Body: ", requestBody);
       const token = localStorage.getItem('token');  // Get the token from local storage
-      const { data } = await axios.post('http://localhost:3333/api/recipes', requestBody, {
+      const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/recipes`, requestBody, {
         headers: {
           Authorization: `Bearer ${token}`, 
         }
       });
+
     
       console.log('Recipe created successfully', data);
       setTimeout(() => {

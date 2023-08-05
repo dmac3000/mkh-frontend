@@ -13,7 +13,7 @@ const Signup = () => {
     e.preventDefault();
   
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, {
+      const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/signup`, {
         username,
         email,
         password,

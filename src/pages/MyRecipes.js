@@ -33,7 +33,7 @@ export default function MyRecipes() {
     } else {
       const token = localStorage.getItem('token');
       console.log("Token: ", token);
-      axios.get('http://localhost:3333/api/my-recipes', {
+      axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/my-recipes`, {
         headers: {
           Authorization: `Bearer ${token}`,
         }

@@ -7,7 +7,7 @@ const ViewAllRecipes = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3333/api/recipes')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recipes`)
       .then(res => setRecipes(res.data))
       .catch(err => console.error(err));
   }, []);
