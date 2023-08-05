@@ -96,16 +96,16 @@ const CreateRecipe = () => {
   };
 
   return (
-    <div className="mx-auto my-auto text-white sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/3 pt-6">
+    <div className="mx-auto my-auto sm:w-full md:w-2/3 lg:w-1/2 xl:w-1/3 pt-6">
       <div className="bg-black/70 rounded-2xl relative pb-6">
         <div className="flex flex-col md:flex-row items-start m-4 justify-start h-3/4 ">
-          <div className="flex flex-col items-center justify-start sm:w-full md:max-w-sm mx-auto pt-6 rounded text-white">
+          <div className="flex flex-col items-center justify-start sm:w-full md:max-w-sm mx-auto pt-6 rounded">
            
-            <h1 className="text-4xl font-custom pb-4">Create Recipe</h1>
+            <h1 className="text-4xl font-custom pb-4 text-white">Create Recipe</h1>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
            
             <form onSubmit={handleSubmit}>
-              <h3 className='text-grey-700 font-bold py-2'>Recipe Details</h3>
+              <h3 className='text-white font-bold py-2'>Recipe Details</h3>
            
               {/* Recipe Name */}
               <div>

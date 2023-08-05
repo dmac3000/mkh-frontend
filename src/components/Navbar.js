@@ -20,7 +20,7 @@ export default function Navbar() {
   
     if (newSearchTerm) {
       try {
-        const response = await axios.get(`http://localhost:3333/api/recipes/search?term=${newSearchTerm}`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${newSearchTerm}`);
         setResults(response.data); // Store the search results in the state
         console.log(results) // log for debugging
         navigate('/search', { state: { results, term: search } }); // Pass the search term here
@@ -89,7 +89,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="dropdown dropdown-end mr-4">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar lg:mr-4">
             <div className="w-12 h-12 rounded-full">
               <img src="/user.svg" alt= 'user'/>
             </div>
