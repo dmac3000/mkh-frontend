@@ -64,6 +64,44 @@ Social Sarah:
 
 ## Development Testing
 
+## Production Testing
+
+## Libraries Used
+
+### Frontend Libraries:
+
+#### react-responsive-carousel: 
+To enhance the user interface and improve user engagement, I integrated the react-responsive-carousel library into the frontend. This enabled the implementation of a responsive image carousel, allowing users to seamlessly navigate through content on different devices.
+
+#### daisyUI and Tailwind: 
+For frontend design and styling, I opted for the daisyUI component library in conjunction with Tailwind CSS. This choice facilitated the rapid development of a visually appealing and consistent user interface. Leveraging pre-designed components and utility classes from daisyUI, I ensured a professional and cohesive design throughout the app.
+
+#### react-router-dom:
+ For seamless navigation and efficient handling of multiple views, I integrated the react-router-dom library. This robust routing solution allowed users to transition between various pages without the need for full page reloads, enhancing the overall user experience.
+
+#### axios: 
+As a crucial element of frontend-backend communication, I employed the axios library. This enabled asynchronous HTTP requests to the backend, ensuring smooth data retrieval and manipulation while maintaining app responsiveness.
+
+### Backend Libraries:
+
+#### express: 
+For backend development, I utilised the express framework, a robust and widely-used solution. By defining routes and middleware, I structured the backend to handle incoming requests efficiently, enabling the application to respond to user actions effectively.
+
+#### bcrypt: 
+I implemented the bcrypt library to securely hash and store user passwords. This way even if someone were to gain access to the backend, the users passwords would not be visible.
+
+#### dotenv: 
+To safeguard sensitive information such as the API key and database login details I used the dotenv library. By storing such data in a .env file, I maintained a separation between config details and the source code, reducing the risk of accidental exposure.
+
+#### jwt: 
+I integrated JSON Web Tokens (JWT) for user authentication. This enabled secure and stateless authentication, as users received encrypted tokens upon logging in, which they then presented for subsequent requests to the server.
+
+#### mongoose: 
+I used the mongoose library to interact with the MongoDB database. This required definition of data schemas and models, which helped with data consistency and validation, while simplifying database queries.
+
+#### cors: 
+In accordance with security best practices, I used the cors library to manage Cross-Origin Resource Sharing. By configuring CORS, I specified which domains could access the backend API, helping to reduce potential security risks.
+
 ## Project Management Methodology
 
 I used the Kanban agile method to manage the flow of this project, via a Trello board with "To Do", "Doing", and "Done" lists of tasks, both big and small.
