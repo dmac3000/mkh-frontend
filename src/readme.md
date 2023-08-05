@@ -62,6 +62,24 @@ Social Sarah:
 ![Homepage](./docs/wireframes/mkh-homepage.png)
 ![Recipes](./docs/wireframes/mkh-recipes.png)
 
+
+
+
+## Development Testing
+
+
+
+
+
+
+
+## Project Management Methodology
+I used the Kanban agile method to manage the flow of this project, via a Trello board with "To Do", "Doing", and "Done" lists of tasks, both big and small.
+
+Having "To Do", "Doing" and "Done" lists allowed me to easily categorise what had been done, what I needed to focus on, and what was to come. Being able to visualise the work this way allowed me to focus on one thing at a time, without having too much going on at once, as well as being able to celebrate how much I'd achieved while watching the "Done" list grow. This helped me "focus on flow", one of the principles of Kanban.
+
+At the end of every day, I would take a screenshot of the Trello board, which I have included below.
+
 ## Trello Screenshots
 
 ### Part A

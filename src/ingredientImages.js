@@ -12,6 +12,7 @@ import hylianrice from './assets/ingredient-icons/hylian-rice.png';
 import largezonaicharge from './assets/ingredient-icons/large-zonai-charge.png';
 import monsterextract from './assets/ingredient-icons/monster-extract.png';
 import oiljar from './assets/ingredient-icons/oil-jar.png';
+import rocksalt from './assets/ingredient-icons/rock-salt.png';
 import starfragment from './assets/ingredient-icons/star-fragment.png';
 import tabanthawheat from './assets/ingredient-icons/tabantha-wheat.png';
 import wood from './assets/ingredient-icons/wood.png';
@@ -119,6 +120,7 @@ export const ingredientImages = {
     'Large Zonai Charge': largezonaicharge,
     'Monster Extract': monsterextract,
     'Oil Jar': oiljar,
+    'Rock Salt': rocksalt,
     'Star Fragment': starfragment,
     'Tabantha Wheat': tabanthawheat,
     'Wood': wood,

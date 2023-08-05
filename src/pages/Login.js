@@ -18,11 +18,11 @@ const Login = () => {
     e.preventDefault();
   
     try {
-      const { data } = await axios.post('http://localhost:3333/api/login', {
+      const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/login`, {
         username,
         password,
       });
-  
+      
       localStorage.setItem('token', data.token);
       localStorage.setItem('userId', data.userId); 
       localStorage.setItem('username', data.username);  // Add this line
