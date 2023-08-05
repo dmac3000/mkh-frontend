@@ -63,29 +63,59 @@ Social Sarah:
 ![Recipes](./docs/wireframes/mkh-recipes.png)
 
 ## Development Testing
+![Insomnia]Screenshot
+![Insomnia]Screenshot
+![Insomnia]Screenshot
+![Insomnia]Screenshot 
+![Insomnia]Screenshot
+![Jest] Screenshot
 
 ## Production Testing
+![Insomnia]Screenshot
+![Insomnia]Screenshot
+![Insomnia]Screenshot
+![Insomnia]Screenshot 
+Live Frontend testing screenshot
+Live Frontend testing screenshot
+Live Frontend testing screenshot
+Live Frontend testing screenshot
+
+Did not implement ability to see JWT token in prod for security reasons, so unable to test routes that require authentication easily, but have included screenshots below:
+
+### Create Recipe
+### View My Recipes
+### Edit Recipe
+### Delete Recipe
+
+
+## Source Control
+Repo links
+
+Evidence of commits
+
+Evidence of merge
 
 ## Libraries Used
 
 ### Frontend Libraries:
 
 #### react-responsive-carousel: 
-To enhance the user interface and improve user engagement, I integrated the react-responsive-carousel library into the frontend. This enabled the implementation of a responsive image carousel, allowing users to seamlessly navigate through content on different devices.
+In order to display the cards in an organised and stylish way, I opted to use a carousel to hold the recipe cards for both the homepage and the users My Recipes page. React-responsive-carousel offered an easy to use out of the box solution which displayed the recipe cards with minimal fuss. The recipe cards flow from side to side and I added an infinite loop option so the reel starts again when the user gets to the end. It's also mobile touch responsive.
+
 
 #### daisyUI and Tailwind: 
-For frontend design and styling, I opted for the daisyUI component library in conjunction with Tailwind CSS. This choice facilitated the rapid development of a visually appealing and consistent user interface. Leveraging pre-designed components and utility classes from daisyUI, I ensured a professional and cohesive design throughout the app.
+For frontend design and styling, I opted for the daisyUI component library in conjunction with Tailwind CSS. Having Tailwind take care of CSS facilitated much more rapid development than I would have been able to achieve otherwise. daisyUI took the pain out of making a mobile responsive navbar and added some extra polish to the dropdown menus. 
 
 #### react-router-dom:
- For seamless navigation and efficient handling of multiple views, I integrated the react-router-dom library. This robust routing solution allowed users to transition between various pages without the need for full page reloads, enhancing the overall user experience.
+ For handling of multiple views, I integrated the react-router-dom library. This frequently used routing solution allows users to transition between various pages without the need for full page reloads, enhancing the overall user experience and response time.
 
 #### axios: 
-As a crucial element of frontend-backend communication, I employed the axios library. This enabled asynchronous HTTP requests to the backend, ensuring smooth data retrieval and manipulation while maintaining app responsiveness.
+Axios enables asynchronous HTTP requests to the backend. I chose axios for API calls over other common options, mainly for the sake of familiarity than any other reason. 
 
 ### Backend Libraries:
 
 #### express: 
-For backend development, I utilised the express framework, a robust and widely-used solution. By defining routes and middleware, I structured the backend to handle incoming requests efficiently, enabling the application to respond to user actions effectively.
+I used Express framework to create the server as this framework works well with MongoDB and React, they are a fairly common tech stack. Express was mainly used for defining routes and middleware and setting up a backend server to handle incoming HTTP requests.
 
 #### bcrypt: 
 I implemented the bcrypt library to securely hash and store user passwords. This way even if someone were to gain access to the backend, the users passwords would not be visible.
@@ -97,7 +127,7 @@ To safeguard sensitive information such as the API key and database login detail
 I integrated JSON Web Tokens (JWT) for user authentication. This enabled secure and stateless authentication, as users received encrypted tokens upon logging in, which they then presented for subsequent requests to the server.
 
 #### mongoose: 
-I used the mongoose library to interact with the MongoDB database. This required definition of data schemas and models, which helped with data consistency and validation, while simplifying database queries.
+I used the mongoose library to interact with the MongoDB database. This required definition of data schemas and models, which helped with data consistency and validation, whilst simplifying database queries.
 
 #### cors: 
 In accordance with security best practices, I used the cors library to manage Cross-Origin Resource Sharing. By configuring CORS, I specified which domains could access the backend API, helping to reduce potential security risks.
@@ -111,6 +141,7 @@ Having "To Do", "Doing" and "Done" lists allowed me to easily categorise what ha
 At the end of every day, I would take a screenshot of the Trello board, which I have included below.
 
 ## Trello Screenshots
+Trello Board link
 
 ### Part A
 
@@ -124,3 +155,9 @@ At the end of every day, I would take a screenshot of the Trello board, which I 
 ### Part B
 
 [View Part B Trello Board](https://trello.com/invite/b/6sU3r1jG/ATTI85a704cd42ba3a30487794f140852e8519D337FF/my-kitchen-hyrules-part-b)
+
+## Deployment
+www.mykitchenhyrules.com
+
+Screenshots backend
+Screenshots frontend

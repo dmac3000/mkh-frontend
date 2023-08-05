@@ -29,7 +29,7 @@ p {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("assets/seamless-bg.png");
   background-repeat: repeat;
-  min-height: 82vh;
+  min-height: 84vh;
 }
 
 .navbar-fretwork {
