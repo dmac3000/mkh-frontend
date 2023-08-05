@@ -105,7 +105,7 @@ const CreateRecipe = () => {
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
            
             <form onSubmit={handleSubmit}>
-              <h3 className='text-white font-bold py-2'>Recipe Details</h3>
+              <h3 className='text-grey-700 font-bold py-2'>Recipe Details</h3>
            
               {/* Recipe Name */}
               <div>
