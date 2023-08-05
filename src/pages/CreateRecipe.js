@@ -38,7 +38,7 @@ const CreateRecipe = () => {
   ]);
 
   useEffect(() => {
-    axios.get('http://localhost:3333/api/ingredients')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/ingredients`)
       .then(res => setIngredientsList(res.data))
       .catch(err => console.error(err));
   }, []);
