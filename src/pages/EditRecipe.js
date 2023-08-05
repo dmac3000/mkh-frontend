@@ -59,7 +59,7 @@ const EditRecipe = () => {
   }, [id, ingredientsList]); 
 
   useEffect(() => {
-    axios.get('http://localhost:3333/api/ingredients')
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/apiingredients`)
       .then(res => setIngredientsList(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -85,7 +85,7 @@ const EditRecipe = () => {
       };
       console.log("Request Body: ", requestBody);
       const token = localStorage.getItem('token');  // Get the token from local storage
-const { data } = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`, requestBody, {
+      const { data } = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`, requestBody, {
         headers: {
           Authorization: `Bearer ${token}`, 
         }
