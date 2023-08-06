@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../assets/mkh-logo.svg";
 import "../App.css";
@@ -13,6 +13,12 @@ export default function Navbar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
 
+  useEffect(() => {
+    if (results.length > 0) {
+      navigate("/search", { state: { results, term: search } });
+    }
+  }, [results, navigate, search]);
+
   const handleSearchChange = async (event) => {
     const newSearchTerm = event.target.value;
     setSearch(newSearchTerm);
@@ -20,19 +26,14 @@ export default function Navbar() {
     if (newSearchTerm) {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${newSearchTerm}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${encodeURIComponent(newSearchTerm)}`
         );
-        
-        console.log(response.data); 
-        
-        // Set the state and then navigate to the search page
-        setResults(response.data);
-        navigate("/search", { state: { results: response.data, term: newSearchTerm } });
+        setResults(response.data); // Store the search results in the state
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     }
-};
+  };
 
   const logout = (event) => {
     event.stopPropagation(); // Added this line to stop logout closing dropdown menu
