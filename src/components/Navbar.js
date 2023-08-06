@@ -43,14 +43,14 @@ export default function Navbar() {
 
   return (
     <div className="navbar bg-white">
-      <div className="flex-1 ml-6">
+      <div className="flex-1 ml-2">
         <Link to="/">
           <img src={logo} alt="mkh logo" className="App-logo" />
         </Link>
       </div>
-      <div className="flex-none gap-2 mr-4">
+      <div className="flex-none gap-2">
         {message && (
-          <p className="text-center text-totk-green-light pr-4 font-bold text-sm">
+          <p className="text-center text-totk-green-light font-bold text-sm">
             {message}
           </p>
         )}
@@ -79,7 +79,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     to="/create-recipe"
-                    className="text-base text-black italic font-bold font-sans pr-10"
+                    className="text-base text-black italic font-bold font-sans"
                   >
                     Create Recipe
                   </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
             )}
           </ul>
         </div>
-        <div className="dropdown dropdown-end mr-4">
+        <div className="dropdown dropdown-end lg:mr-4">
           <label
             tabIndex={0}
             className="btn btn-ghost btn-circle avatar lg:mr-4"
@@ -123,7 +123,7 @@ export default function Navbar() {
             {isLoggedIn ? (
               <li>
                 <button
-                  className="text-base text-black italic font-bold font-sans mr-4 pr-8"
+                  className="text-base text-black italic font-bold font-sans"
                   onClick={logout}
                 >
                   Logout ({localStorage.getItem("username")})
@@ -134,7 +134,7 @@ export default function Navbar() {
                 <li>
                   <Link
                     to="/login"
-                    className="text-base text-black italic font-bold font-sans mr-4 pr-8"
+                    className="text-base text-black italic font-bold font-sans"
                   >
                     Login
                   </Link>
