@@ -12,14 +12,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
-  const [searchSubmitted, setSearchSubmitted] = useState(false);
-
-
-  useEffect(() => {
-    if (results.length > 0) {
-      navigate("/search", { state: { results, term: search } });
-    }
-  }, [results, navigate, search]);
+  
 
   const handleSearchChange = async (event) => {
     const newSearchTerm = event.target.value;
@@ -31,11 +24,15 @@ export default function Navbar() {
           `${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${encodeURIComponent(newSearchTerm)}`
         );
         setResults(response.data); // Store the search results in the state
-        setSearchSubmitted(true); // set the flag
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/search", { state: { results, term: search } });
   };
 
   const logout = (event) => {
@@ -49,6 +46,7 @@ export default function Navbar() {
   };
 
   return (
+    <form onSubmit={handleSubmit}>
     <div className="navbar bg-white">
       <div className="flex-1 ml-2">
         <Link to="/">
@@ -167,6 +165,7 @@ export default function Navbar() {
         </div>
       </div>
     </div>
+    </form>
   );
 }
 
