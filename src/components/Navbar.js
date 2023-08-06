@@ -12,7 +12,6 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
-  
 
   const handleSearchChange = async (event) => {
     const newSearchTerm = event.target.value;
@@ -21,7 +20,9 @@ export default function Navbar() {
     if (newSearchTerm) {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${encodeURIComponent(newSearchTerm)}`
+          `${
+            process.env.REACT_APP_BACKEND_URL
+          }/api/recipes/search?term=${encodeURIComponent(newSearchTerm)}`
         );
         setResults(response.data); // Store the search results in the state
       } catch (error) {
@@ -38,9 +39,9 @@ export default function Navbar() {
   const logout = (event) => {
     event.stopPropagation(); // Added this line to stop logout closing dropdown menu
     localStorage.removeItem("token");
-    localStorage.removeItem("username"); 
+    localStorage.removeItem("username");
     setIsLoggedIn(false);
-    setMessage("Logged out successfully"); 
+    setMessage("Logged out successfully");
     setTimeout(() => setMessage(""), 2000); // Clear the logged out message after 2 seconds
     navigate("/"); // Navigate to home
   };
@@ -66,7 +67,12 @@ export default function Navbar() {
             value={search}
             onChange={handleSearchChange}
           />
-          <input type="submit" value="Search" />
+          <input
+            type="image"
+            src="/magnifying-glass.jpg"
+            alt="Submit search"
+            className="search-icon"
+          />
         </form>
 
         <div className="dropdown dropdown-end ml-6">
@@ -167,4 +173,3 @@ export default function Navbar() {
     </div>
   );
 }
-
