@@ -12,6 +12,8 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
+  const [searchSubmitted, setSearchSubmitted] = useState(false);
+
 
   useEffect(() => {
     if (results.length > 0) {
@@ -29,6 +31,7 @@ export default function Navbar() {
           `${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${encodeURIComponent(newSearchTerm)}`
         );
         setResults(response.data); // Store the search results in the state
+        setSearchSubmitted(true); // set the flag
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
