@@ -21,7 +21,7 @@ const RecipeCard = ({ recipe }) => {
 
         {/* Recipe Card Background */}
         <img
-          className="h-96 w-full object-contain"
+          className="h-96 w-full object-cover"
           src="/RecipeCard.png"
           alt="Recipe Card Background"
         />
