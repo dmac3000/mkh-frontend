@@ -17,7 +17,8 @@ const RecipeCard = ({ recipe }) => {
   return (
     <Link to={`/view-recipe/${recipe._id}`}>
       {/* Container div */}
-      <div className="h-4/5 w-72 rounded-lg shadow-lg overflow-hidden mx-auto relative text-recipe-card-brown">
+      <div className="w-72 rounded-lg shadow-lg overflow-hidden mx-auto relative text-recipe-card-brown">
+
         {/* Recipe Card Background */}
         <img
           className="h-96 w-full object-contain"
