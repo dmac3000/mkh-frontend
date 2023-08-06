@@ -22,14 +22,18 @@ export default function Navbar() {
         const response = await axios.get(
           `${process.env.REACT_APP_BACKEND_URL}/api/recipes/search?term=${newSearchTerm}`
         );
-        setResults(response.data); // Store the search results in the state
-        console.log(results); 
-        navigate("/search", { state: { results, term: search } }); // Pass the search term here
+        
+        console.log(response.data); 
+        
+        // Set the state and then navigate to the search page
+        setResults(response.data);
+        setSearch(newSearchTerm);
+        navigate("/search", { state: { results: response.data, term: newSearchTerm } });
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     }
-  };
+};
 
   const logout = (event) => {
     event.stopPropagation(); // Added this line to stop logout closing dropdown menu

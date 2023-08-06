@@ -29,7 +29,7 @@ const ViewRecipe = () => {
       );
       console.log("Delete response:", response);
 
-      const message = `${recipe.name} deleted successfully`;
+      const message = `${recipe.name} deleted successfully.`;
     localStorage.setItem("message", message);
     console.log("message set in localStorage:", localStorage.getItem("message"));
     navigate("/my-recipes", {
