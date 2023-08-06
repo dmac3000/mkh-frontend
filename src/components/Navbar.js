@@ -27,7 +27,6 @@ export default function Navbar() {
         
         // Set the state and then navigate to the search page
         setResults(response.data);
-        setSearch(newSearchTerm);
         navigate("/search", { state: { results: response.data, term: newSearchTerm } });
       } catch (error) {
         console.error("Error fetching data: ", error);
