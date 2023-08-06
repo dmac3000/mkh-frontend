@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import logo from "../assets/mkh-logo.svg";
 import "../App.css";
@@ -46,7 +46,6 @@ export default function Navbar() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
     <div className="navbar bg-white">
       <div className="flex-1 ml-2">
         <Link to="/">
@@ -59,7 +58,7 @@ export default function Navbar() {
             {message}
           </p>
         )}
-        <div className="form-control">
+        <form onSubmit={handleSubmit} className="form-control">
           <input
             type="text"
             placeholder="Search by name or effect"
@@ -67,7 +66,8 @@ export default function Navbar() {
             value={search}
             onChange={handleSearchChange}
           />
-        </div>
+          <input type="submit" value="Search" />
+        </form>
 
         <div className="dropdown dropdown-end ml-6">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar mr-4">
@@ -165,7 +165,6 @@ export default function Navbar() {
         </div>
       </div>
     </div>
-    </form>
   );
 }
 

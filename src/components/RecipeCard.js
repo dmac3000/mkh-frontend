@@ -6,7 +6,7 @@ const RecipeCard = ({ recipe }) => {
   // If recipe or recipe.userId is undefined, return a placeholder layout
   if (!recipe || !recipe.userId) {
     return (
-      <div className="w-96 h-4/5 rounded-lg shadow-lg overflow-hidden mx-auto relative">
+      <div className="w-96 rounded-lg shadow-lg overflow-hidden mx-auto relative">
         <p>No recipe to display</p>
       </div>
     );
