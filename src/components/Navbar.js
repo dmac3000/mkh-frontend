@@ -13,27 +13,27 @@ export default function Navbar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [message, setMessage] = useState("");
 
-  const handleSearchChange = async (event) => {
+  const handleSearchChange = (event) => {
     const newSearchTerm = event.target.value;
     setSearch(newSearchTerm);
+  };
 
-    if (newSearchTerm) {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (search) {
       try {
         const response = await axios.get(
           `${
             process.env.REACT_APP_BACKEND_URL
-          }/api/recipes/search?term=${encodeURIComponent(newSearchTerm)}`
+          }/api/recipes/search?term=${encodeURIComponent(search)}`
         );
         setResults(response.data); // Store the search results in the state
+        navigate("/search", { state: { results, term: search } });
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate("/search", { state: { results, term: search } });
   };
 
   const logout = (event) => {
@@ -60,19 +60,22 @@ export default function Navbar() {
           </p>
         )}
         <form onSubmit={handleSubmit} className="form-control">
-          <input
-            type="text"
-            placeholder="Search by name or effect"
-            className="input input-bordered bg-white text-black w-24 lg:w-64"
-            value={search}
-            onChange={handleSearchChange}
-          />
-          <input
-            type="image"
-            src="/magnifying-glass.jpg"
-            alt="Submit search"
-            className="search-icon"
-          />
+          <div className="flex items-center">
+            <input
+              type="text"
+              placeholder="Search by name or effect"
+              className="input input-bordered bg-white text-black w-24 lg:w-64"
+              value={search}
+              onChange={handleSearchChange}
+            />
+            <input
+              type="image"
+              src="/magnifying-glass.jpg"
+              alt="Submit search"
+              className="w-7 h-7 ml-3"
+            />
+            <input type="submit" style={{ display: "none" }} />
+          </div>
         </form>
 
         <div className="dropdown dropdown-end ml-6">
@@ -123,7 +126,7 @@ export default function Navbar() {
             tabIndex={0}
             className="btn btn-ghost btn-circle avatar lg:mr-4"
           >
-            <div className="w-12 h-12 rounded-full">
+            <div className="w-11 h-11 rounded-full">
               <img src="/user.svg" alt="user" />
             </div>
           </label>
