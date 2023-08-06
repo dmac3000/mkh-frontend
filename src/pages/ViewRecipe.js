@@ -29,14 +29,12 @@ const ViewRecipe = () => {
       );
       console.log("Delete response:", response);
 
-      localStorage.setItem("message", "Recipe deleted successfully");
-      console.log(
-        "message set in localStorage:",
-        localStorage.getItem("message")
-      );
-      navigate("/my-recipes", {
-        state: { message: "Recipe deleted successfully." },
-      });
+      const message = `${recipe.name} deleted successfully`;
+    localStorage.setItem("message", message);
+    console.log("message set in localStorage:", localStorage.getItem("message"));
+    navigate("/my-recipes", {
+      state: { message: message },
+    });
     } catch (err) {
       console.error(err);
       if (err.response && err.response.status === 404) {
