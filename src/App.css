@@ -29,7 +29,8 @@ p {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("assets/seamless-bg.png");
   background-repeat: repeat;
-  min-height: 82vh;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .navbar-fretwork {
@@ -62,7 +63,7 @@ p {
   pointer-events: none;
 }
 
-.App-header {
+/* .App-header {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -70,7 +71,7 @@ p {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;

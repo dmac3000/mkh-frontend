@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import CarouselContainer from "../components/CarouselContainer";
-import { AuthContext } from "../AuthContext"; 
-import { useNavigate } from "react-router-dom"; 
+import { AuthContext } from "../AuthContext";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -11,8 +11,8 @@ export default function MyRecipes() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const { isLoggedIn } = useContext(AuthContext); 
-  const navigate = useNavigate(); 
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const location = useLocation();
   const message = location.state?.message;
@@ -46,12 +46,12 @@ export default function MyRecipes() {
         })
         .catch((err) => {
           console.error(err);
-          console.error(err.response); 
+          console.error(err.response);
           setError("Failed to load recipes");
           setLoading(false);
         });
     }
-  }, [isLoggedIn, navigate]); 
+  }, [isLoggedIn, navigate]);
 
   if (loading) {
     return <div>Loading...</div>;

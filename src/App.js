@@ -16,8 +16,8 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
         <div className="background-image">
+          <Navbar />
           <div className="navbar-fretwork"></div>
 
           <Routes>

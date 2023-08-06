@@ -20,7 +20,7 @@ const ViewRecipe = () => {
     const token = localStorage.getItem("token");
     try {
       const response = await axios.delete(
-        `http://localhost:3333/api/recipes/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
